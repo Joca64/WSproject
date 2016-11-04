@@ -12,16 +12,19 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
+        <ObjectProperty IRI="#belongsToTheme"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Franchise"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Platform"/>
+        <ObjectProperty IRI="#isDevelopedBy"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Company"/>
+        <ObjectProperty IRI="#belongsToGenre"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Theme"/>
+        <ObjectProperty IRI="#hasDeveloped"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Genre"/>
@@ -29,6 +32,63 @@
     <Declaration>
         <Class IRI="#Game"/>
     </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPublished"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGameDevelopedFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#developedForPlatform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isGenreOf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Platform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Company"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongsToFranchise"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theme"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPublishedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isThemeOf"/>
+    </Declaration>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#belongsToFranchise"/>
+        <ObjectProperty IRI="#hasGame"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#belongsToGenre"/>
+        <ObjectProperty IRI="#isGenreOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#belongsToTheme"/>
+        <ObjectProperty IRI="#isThemeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#developedForPlatform"/>
+        <ObjectProperty IRI="#hasGameDevelopedFor"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasDeveloped"/>
+        <ObjectProperty IRI="#isDevelopedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasPublished"/>
+        <ObjectProperty IRI="#isPublishedBy"/>
+    </InverseObjectProperties>
 </Ontology>
 
 
