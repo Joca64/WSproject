@@ -140,11 +140,11 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#belongsToGenre"/>
-        <Class IRI="#Genre"/>
+        <Class IRI="#Game"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#belongsToTheme"/>
-        <Class IRI="#Theme"/>
+        <Class IRI="#Game"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#developedForPlatform"/>
@@ -188,11 +188,11 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#belongsToGenre"/>
-        <Class IRI="#Game"/>
+        <Class IRI="#Genre"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#belongsToTheme"/>
-        <Class IRI="#Game"/>
+        <Class IRI="#Theme"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#developedForPlatform"/>
