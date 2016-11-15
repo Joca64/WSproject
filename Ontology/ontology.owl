@@ -152,7 +152,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDeveloped"/>
-        <Class IRI="#Game"/>
+        <Class IRI="#Company"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasGame"/>
@@ -200,7 +200,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasDeveloped"/>
-        <Class IRI="#Company"/>
+        <Class IRI="#Game"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasGame"/>
