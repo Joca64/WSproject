@@ -16,7 +16,7 @@
         <DataProperty IRI="#hasPlatformID"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#belongsToTheme"/>
+        <DataProperty IRI="#hasPublishedGamesTotal"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Franchise"/>
@@ -31,19 +31,22 @@
         <DataProperty IRI="#hasGameID"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasDevelopedGamesTotal"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasPublished"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasGameGenre"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasGameDevelopedFor"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasCompanyID"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#developedForPlatform"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isGenreOf"/>
+        <DataProperty IRI="#hasCompanyID"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasBeenManufacturedBy"/>
@@ -58,19 +61,16 @@
         <ObjectProperty IRI="#isPublishedBy"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Theme"/>
+        <DataProperty IRI="#hasCompanyName"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasFranchiseName"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasCompanyName"/>
+        <DataProperty IRI="#hasGameTheme"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isThemeOf"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasThemeName"/>
+        <Class IRI="#Manufacturer"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasPlatformName"/>
@@ -91,65 +91,35 @@
         <DataProperty IRI="#hasCompanyWebsite"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#belongsToGenre"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasDeveloped"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Genre"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Game"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasGameImage"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Publisher"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Game"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasGameName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Company"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#belongsToFranchise"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Company"/>
-    </Declaration>
-    <Declaration>
         <DataProperty IRI="#hasCompanyDescription"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasGenreName"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasThemeID"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCompanyCountry"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasGenreID"/>
+        <Class IRI="#Developer"/>
     </Declaration>
-    <SubClassOf>
-        <Class IRI="#Company"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasDeveloped"/>
-            <Class IRI="#Game"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Company"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasManufactured"/>
-            <Class IRI="#Platform"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Company"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasPublished"/>
-            <Class IRI="#Game"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
     <SubClassOf>
         <Class IRI="#Company"/>
         <DataExactCardinality cardinality="1">
@@ -184,6 +154,24 @@
             <DataProperty IRI="#hasCompanyWebsite"/>
             <Datatype abbreviatedIRI="xsd:anyURI"/>
         </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Developer"/>
+        <Class IRI="#Company"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Developer"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#hasDeveloped"/>
+            <Class IRI="#Game"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Developer"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#hasDevelopedGamesTotal"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Franchise"/>
@@ -222,20 +210,6 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Game"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#belongsToGenre"/>
-            <Class IRI="#Genre"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Game"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#belongsToTheme"/>
-            <Class IRI="#Theme"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Game"/>
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#developedForPlatform"/>
             <Class IRI="#Platform"/>
@@ -245,21 +219,35 @@
         <Class IRI="#Game"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#isDevelopedBy"/>
-            <Class IRI="#Company"/>
+            <Class IRI="#Developer"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Game"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#isPublishedBy"/>
-            <Class IRI="#Company"/>
+            <Class IRI="#Publisher"/>
         </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasGameGenre"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Game"/>
         <DataSomeValuesFrom>
             <DataProperty IRI="#hasGameImage"/>
             <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasGameTheme"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -284,25 +272,15 @@
         </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Genre"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#isGenreOf"/>
-            <Class IRI="#Game"/>
-        </ObjectSomeValuesFrom>
+        <Class IRI="#Manufacturer"/>
+        <Class IRI="#Company"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Genre"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasGenreID"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
-        </DataExactCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Genre"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasGenreName"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
-        </DataExactCardinality>
+        <Class IRI="#Manufacturer"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#hasManufactured"/>
+            <Class IRI="#Platform"/>
+        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Platform"/>
@@ -315,7 +293,7 @@
         <Class IRI="#Platform"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#hasBeenManufacturedBy"/>
-            <Class IRI="#Company"/>
+            <Class IRI="#Manufacturer"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -340,45 +318,26 @@
         </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Theme"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#isThemeOf"/>
+        <Class IRI="#Publisher"/>
+        <Class IRI="#Company"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Publisher"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#hasPublished"/>
             <Class IRI="#Game"/>
-        </ObjectSomeValuesFrom>
+        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Theme"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasThemeID"/>
+        <Class IRI="#Publisher"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#hasPublishedGamesTotal"/>
             <Datatype abbreviatedIRI="xsd:int"/>
-        </DataExactCardinality>
+        </DataMinCardinality>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Theme"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasThemeName"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
-        </DataExactCardinality>
-    </SubClassOf>
-    <DisjointClasses>
-        <Class IRI="#Company"/>
-        <Class IRI="#Franchise"/>
-        <Class IRI="#Game"/>
-        <Class IRI="#Genre"/>
-        <Class IRI="#Platform"/>
-        <Class IRI="#Theme"/>
-    </DisjointClasses>
     <InverseObjectProperties>
         <ObjectProperty IRI="#belongsToFranchise"/>
         <ObjectProperty IRI="#hasGame"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#belongsToGenre"/>
-        <ObjectProperty IRI="#isGenreOf"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#belongsToTheme"/>
-        <ObjectProperty IRI="#isThemeOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#developedForPlatform"/>
@@ -406,12 +365,6 @@
         <ObjectProperty IRI="#belongsToFranchise"/>
     </IrreflexiveObjectProperty>
     <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#belongsToGenre"/>
-    </IrreflexiveObjectProperty>
-    <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#belongsToTheme"/>
-    </IrreflexiveObjectProperty>
-    <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#developedForPlatform"/>
     </IrreflexiveObjectProperty>
     <IrreflexiveObjectProperty>
@@ -426,22 +379,8 @@
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#hasPublished"/>
     </IrreflexiveObjectProperty>
-    <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#isGenreOf"/>
-    </IrreflexiveObjectProperty>
-    <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#isThemeOf"/>
-    </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#belongsToFranchise"/>
-        <Class IRI="#Game"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#belongsToGenre"/>
-        <Class IRI="#Game"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#belongsToTheme"/>
         <Class IRI="#Game"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -454,7 +393,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDeveloped"/>
-        <Class IRI="#Company"/>
+        <Class IRI="#Developer"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasGame"/>
@@ -466,39 +405,23 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasManufactured"/>
-        <Class IRI="#Company"/>
+        <Class IRI="#Manufacturer"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPublished"/>
-        <Class IRI="#Company"/>
+        <Class IRI="#Publisher"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isDevelopedBy"/>
         <Class IRI="#Game"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isGenreOf"/>
-        <Class IRI="#Genre"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isPublishedBy"/>
         <Class IRI="#Game"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isThemeOf"/>
-        <Class IRI="#Theme"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#belongsToFranchise"/>
         <Class IRI="#Franchise"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#belongsToGenre"/>
-        <Class IRI="#Genre"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#belongsToTheme"/>
-        <Class IRI="#Theme"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#developedForPlatform"/>
@@ -506,7 +429,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasBeenManufacturedBy"/>
-        <Class IRI="#Company"/>
+        <Class IRI="#Manufacturer"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasDeveloped"/>
@@ -530,19 +453,11 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isDevelopedBy"/>
-        <Class IRI="#Company"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isGenreOf"/>
-        <Class IRI="#Game"/>
+        <Class IRI="#Developer"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isPublishedBy"/>
-        <Class IRI="#Company"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isThemeOf"/>
-        <Class IRI="#Game"/>
+        <Class IRI="#Publisher"/>
     </ObjectPropertyRange>
     <FunctionalDataProperty>
         <DataProperty IRI="#hasGameDescription"/>
@@ -580,6 +495,10 @@
         <Class IRI="#Company"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#hasDevelopedGamesTotal"/>
+        <Class IRI="#Developer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#hasFranchiseDescription"/>
         <Class IRI="#Franchise"/>
     </DataPropertyDomain>
@@ -596,6 +515,10 @@
         <Class IRI="#Game"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#hasGameGenre"/>
+        <Class IRI="#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#hasGameID"/>
         <Class IRI="#Game"/>
     </DataPropertyDomain>
@@ -608,12 +531,8 @@
         <Class IRI="#Game"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasGenreID"/>
-        <Class IRI="#Genre"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasGenreName"/>
-        <Class IRI="#Genre"/>
+        <DataProperty IRI="#hasGameTheme"/>
+        <Class IRI="#Game"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasPlatformDescription"/>
@@ -628,12 +547,8 @@
         <Class IRI="#Platform"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasThemeID"/>
-        <Class IRI="#Theme"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasThemeName"/>
-        <Class IRI="#Theme"/>
+        <DataProperty IRI="#hasPublishedGamesTotal"/>
+        <Class IRI="#Publisher"/>
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#hasCompanyCountry"/>
@@ -656,6 +571,10 @@
         <Datatype abbreviatedIRI="xsd:anyURI"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#hasDevelopedGamesTotal"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#hasFranchiseDescription"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
@@ -672,6 +591,10 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#hasGameGenre"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#hasGameID"/>
         <Datatype abbreviatedIRI="xsd:int"/>
     </DataPropertyRange>
@@ -684,11 +607,7 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#hasGenreID"/>
-        <Datatype abbreviatedIRI="xsd:int"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasGenreName"/>
+        <DataProperty IRI="#hasGameTheme"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -704,12 +623,8 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#hasThemeID"/>
+        <DataProperty IRI="#hasPublishedGamesTotal"/>
         <Datatype abbreviatedIRI="xsd:int"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasThemeName"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
 </Ontology>
 
