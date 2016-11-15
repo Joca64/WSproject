@@ -13,13 +13,82 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
+        <DataProperty IRI="#hasPlatformID"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#belongsToTheme"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Franchise"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasManufactured"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasFranchiseDescription"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasGameID"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPublished"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGameDevelopedFor"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCompanyID"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#developedForPlatform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isGenreOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBeenManufacturedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Platform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPublishedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theme"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasFranchiseName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCompanyName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isThemeOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasThemeName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPlatformName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasGameDescription"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPlatformDescription"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasFranchiseID"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#isDevelopedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCompanyWebsite"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#belongsToGenre"/>
@@ -34,19 +103,10 @@
         <Class IRI="#Game"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasPublished"/>
+        <DataProperty IRI="#hasGameImage"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasGameDevelopedFor"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#developedForPlatform"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isGenreOf"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Platform"/>
+        <DataProperty IRI="#hasGameName"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#belongsToFranchise"/>
@@ -55,17 +115,251 @@
         <Class IRI="#Company"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasGame"/>
+        <DataProperty IRI="#hasCompanyDescription"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasGenreName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasThemeID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCompanyCountry"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasGenreID"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDeveloped"/>
+            <Class IRI="#Game"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasManufactured"/>
+            <Class IRI="#Platform"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPublished"/>
+            <Class IRI="#Game"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasCompanyID"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasCompanyName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasCompanyCountry"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasCompanyDescription"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasCompanyWebsite"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Franchise"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#hasGame"/>
+            <Class IRI="#Game"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Franchise"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasFranchiseID"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Franchise"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasFranchiseName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Franchise"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasFranchiseDescription"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#belongsToFranchise"/>
+            <Class IRI="#Franchise"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#belongsToGenre"/>
+            <Class IRI="#Genre"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#belongsToTheme"/>
+            <Class IRI="#Theme"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#developedForPlatform"/>
+            <Class IRI="#Platform"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#isDevelopedBy"/>
+            <Class IRI="#Company"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#isPublishedBy"/>
+            <Class IRI="#Company"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasGameImage"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasGameID"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasGameName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasGameDescription"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Genre"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isGenreOf"/>
+            <Class IRI="#Game"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Genre"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasGenreID"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Genre"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasGenreName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Platform"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasGameDevelopedFor"/>
+            <Class IRI="#Game"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Platform"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasBeenManufacturedBy"/>
+            <Class IRI="#Company"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Platform"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasPlatformID"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Platform"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasPlatformName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Platform"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#hasPlatformDescription"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Theme"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isPublishedBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isThemeOf"/>
-    </Declaration>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isThemeOf"/>
+            <Class IRI="#Game"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theme"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasThemeID"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theme"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasThemeName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
     <DisjointClasses>
         <Class IRI="#Company"/>
         <Class IRI="#Franchise"/>
@@ -91,6 +385,10 @@
         <ObjectProperty IRI="#hasGameDevelopedFor"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#hasBeenManufacturedBy"/>
+        <ObjectProperty IRI="#hasManufactured"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#hasDeveloped"/>
         <ObjectProperty IRI="#isDevelopedBy"/>
     </InverseObjectProperties>
@@ -151,6 +449,10 @@
         <Class IRI="#Game"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBeenManufacturedBy"/>
+        <Class IRI="#Platform"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDeveloped"/>
         <Class IRI="#Company"/>
     </ObjectPropertyDomain>
@@ -161,6 +463,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasGameDevelopedFor"/>
         <Class IRI="#Platform"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasManufactured"/>
+        <Class IRI="#Company"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPublished"/>
@@ -199,6 +505,10 @@
         <Class IRI="#Platform"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBeenManufacturedBy"/>
+        <Class IRI="#Company"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasDeveloped"/>
         <Class IRI="#Game"/>
     </ObjectPropertyRange>
@@ -209,6 +519,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasGameDevelopedFor"/>
         <Class IRI="#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasManufactured"/>
+        <Class IRI="#Platform"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasPublished"/>
@@ -230,6 +544,173 @@
         <ObjectProperty IRI="#isThemeOf"/>
         <Class IRI="#Game"/>
     </ObjectPropertyRange>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasGameDescription"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasGameID"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasGameImage"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasGameName"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasPlatformDescription"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasCompanyCountry"/>
+        <Class IRI="#Company"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasCompanyDescription"/>
+        <Class IRI="#Company"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasCompanyID"/>
+        <Class IRI="#Company"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasCompanyName"/>
+        <Class IRI="#Company"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasCompanyWebsite"/>
+        <Class IRI="#Company"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasFranchiseDescription"/>
+        <Class IRI="#Franchise"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasFranchiseID"/>
+        <Class IRI="#Franchise"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasFranchiseName"/>
+        <Class IRI="#Franchise"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasGameDescription"/>
+        <Class IRI="#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasGameID"/>
+        <Class IRI="#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasGameImage"/>
+        <Class IRI="#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasGameName"/>
+        <Class IRI="#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasGenreID"/>
+        <Class IRI="#Genre"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasGenreName"/>
+        <Class IRI="#Genre"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPlatformDescription"/>
+        <Class IRI="#Platform"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPlatformID"/>
+        <Class IRI="#Platform"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPlatformName"/>
+        <Class IRI="#Platform"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasThemeID"/>
+        <Class IRI="#Theme"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasThemeName"/>
+        <Class IRI="#Theme"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCompanyCountry"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCompanyDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCompanyID"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCompanyName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCompanyWebsite"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasFranchiseDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasFranchiseID"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasFranchiseName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGameDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGameID"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGameImage"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGameName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGenreID"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGenreName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPlatformDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPlatformID"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPlatformName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasThemeID"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasThemeName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
 </Ontology>
 
 
