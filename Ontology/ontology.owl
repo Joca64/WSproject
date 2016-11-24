@@ -37,16 +37,19 @@
         <ObjectProperty IRI="#hasPublished"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasManufacturedTotal"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasGameGenre"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasGameDevelopedFor"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#developedForPlatform"/>
+        <DataProperty IRI="#hasCompanyID"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasCompanyID"/>
+        <ObjectProperty IRI="#developedForPlatform"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasBeenManufacturedBy"/>
@@ -61,10 +64,10 @@
         <ObjectProperty IRI="#isPublishedBy"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasCompanyName"/>
+        <DataProperty IRI="#hasFranchiseName"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasFranchiseName"/>
+        <DataProperty IRI="#hasCompanyName"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasGameTheme"/>
@@ -97,10 +100,10 @@
         <DataProperty IRI="#hasGameImage"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Publisher"/>
+        <Class IRI="#Game"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Game"/>
+        <Class IRI="#Publisher"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasGameName"/>
@@ -122,16 +125,23 @@
     </Declaration>
     <SubClassOf>
         <Class IRI="#Company"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasCompanyID"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
-        </DataExactCardinality>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#hasCompanyName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#hasCompanyWebsite"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Company"/>
         <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasCompanyName"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
+            <DataProperty IRI="#hasCompanyID"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
         </DataExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -146,13 +156,6 @@
         <DataMaxCardinality cardinality="1">
             <DataProperty IRI="#hasCompanyDescription"/>
             <Datatype abbreviatedIRI="xsd:string"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Company"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty IRI="#hasCompanyWebsite"/>
-            <Datatype abbreviatedIRI="xsd:anyURI"/>
         </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -281,6 +284,13 @@
             <ObjectProperty IRI="#hasManufactured"/>
             <Class IRI="#Platform"/>
         </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Manufacturer"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#hasManufacturedTotal"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Platform"/>
