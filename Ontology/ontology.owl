@@ -109,10 +109,10 @@
         <DataProperty IRI="#hasGameName"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Company"/>
+        <ObjectProperty IRI="#belongsToFranchise"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#belongsToFranchise"/>
+        <Class IRI="#Company"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCompanyDescription"/>
@@ -220,17 +220,17 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Game"/>
-        <ObjectExactCardinality cardinality="1">
+        <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#isDevelopedBy"/>
             <Class IRI="#Developer"/>
-        </ObjectExactCardinality>
+        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Game"/>
-        <ObjectExactCardinality cardinality="1">
+        <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#isPublishedBy"/>
             <Class IRI="#Publisher"/>
-        </ObjectExactCardinality>
+        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Game"/>
