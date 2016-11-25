@@ -1,0 +1,227 @@
+[
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "The Xbox 360 is the second game console produced by Microsoft Corporation and is the successor to the original Xbox.",
+    "id": 20,
+    "name": "Xbox 360"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "The PlayStation 3 (often abbreviated PS3) is the third home video game console created and released by Sony Computer Entertainment Inc.",
+    "id": 35,
+    "name": "PlayStation 3"
+},
+{
+    "company": null,
+    "deck": "The PC (Personal Computer) is a highly configurable and upgradable gaming platform that, among home systems, sports the widest variety of control methods, largest library of games, and cutting edge graphics and sound capabilities.",
+    "id": 94,
+    "name": "PC"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "Xbox Live Games Store is an online store for the Xbox 360 and Xbox One which allows users to purchase games digitally.",
+    "id": 86,
+    "name": "Xbox 360 Games Store"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "The PlayStation Network is the online service by Sony Computer Entertainment, providing downloads of games, trailers, themes and much more. The service is free, but also offers a paid version for various benefits.",
+    "id": 88,
+    "name": "PlayStation Network (PS3)"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The Macintosh (Mac) line of personal computers is designed and developed by Apple, Inc. - formerly Apple Computer, Inc. It runs an operating system called Mac OS. Its current version, Mac OS X 10.11 \"El Capitan,\" was released September 30th, 2015.",
+    "id": 17,
+    "name": "Mac"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "The Xbox One is Microsoft's third video game console. It was released on November 22nd 2013 in 13 countries.",
+    "id": 145,
+    "name": "Xbox One"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "PlayStation 4 is Sony's fourth home video game console, released on November 15, 2013 in North America, and November 29, 2013 in Europe.",
+    "id": 146,
+    "name": "PlayStation 4"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The iPhone is a multimedia multi-touch smartphone created by Apple Inc.",
+    "id": 96,
+    "name": "iPhone"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The iPad is a \"multimedia tablet computer\" with a 9.7\" touchscreen, and has a 7.9\" derivative, the iPad mini. The iPad can browse the web, playback local and streamed content, and run a large variety of third party apps, including games.",
+    "id": 121,
+    "name": "iPad"
+},
+{
+    "company": null,
+    "deck": "The Ouya is an Android-based device that hooks up to TVs and plays video games.",
+    "id": 154,
+    "name": "Ouya"
+},
+{
+    "company": null,
+    "deck": "Google's mobile OS is spread across multiple devices.",
+    "id": 123,
+    "name": "Android"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "PlayStation Portable (PSP) is Sony's first entry into the handheld gaming market. The PSP also sports multimedia features including music and video playback, a photo viewer, and an online store. Several model revisions have been released: the PSP-2000, 3000, PSPgo and the PSP-E1000.",
+    "id": 18,
+    "name": "PlayStation Portable"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "Sony's PlayStation 2 is the second home video game console produced by Sony Computer Entertainment Incorporated, and to date is the best-selling home console of all time, with an install base of 150 million units since its launch.",
+    "id": 19,
+    "name": "PlayStation 2"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-739\/",
+        "id": 739,
+        "name": "Nokia"
+    },
+    "deck": "The N-Gage (later re-released as N-Gage QD) was a failed gaming platform developed by phone manufacturer Nokia. Games in MMC-Card format were sold for the platform, and towards the end, games were available for download to your own MMC. ",
+    "id": 34,
+    "name": "N-Gage"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo Wii is a home video game console released on November 19, 2006. The Wii's main selling point was the innovative use of motion controls that its signature Wii Remote and Nunchuk controllers allowed for. It became the best selling home console of its respective generation of hardware.",
+    "id": 36,
+    "name": "Wii"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo DS is a handheld featuring two screens, one of which is a resistive touchscreen. Four different models are available: the original DS, the DS Lite, the DSi, the DSi XL.",
+    "id": 52,
+    "name": "Nintendo DS"
+},
+{
+    "company": null,
+    "deck": "The Linux operating system was initially released in 1991 and has gone on to become a very popular free alternative to other, commercial systems.",
+    "id": 152,
+    "name": "Linux"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "The PlayStation Network is Sony's digital storefront for delivering games, add-ons, and other content. This specific platform page focuses on the PlayStation Vita version of said storefront.",
+    "id": 143,
+    "name": "PlayStation Network (Vita)"
+},
+{
+    "company": null,
+    "deck": "Stand-alone machines that generally only play one video game each. Arcades began the game industry and peaked in popularity before home consoles took over the gaming public. Arcade games usually cost 25 cents, or 100 yen, per play. Known for the most cutting-edge technology of their time, arcades have the largest video game library, and greatest variety of control methods, of any platform.",
+    "id": 84,
+    "name": "Arcade"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo Wii U, the follow-up to the monstrously popular Nintendo Wii console, launched in North America on November 18th 2012.",
+    "id": 139,
+    "name": "Wii U"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "Windows Phone allows mobile games to tie into Microsoft's existing Xbox Live infrastructure, including accounts, avatars, and achievements.",
+    "id": 124,
+    "name": "Windows Phone"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo GameCube is a sixth generation video game console released by Nintendo on September 15, 2001 in Japan, November 18, 2001 in North America, May 3, 2002 in Europe, and May 17, 2002 in Australia.",
+    "id": 23,
+    "name": "GameCube"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "Previously known as the \"NX,\" Nintendo revealed their hybrid home console and portable gaming device on October 20, 2016.",
+    "id": 157,
+    "name": "Nintendo Switch"
+},
+{
+    "company": null,
+    "deck": "Browser-based games are typically platform-independent pieces of software that run directly in the same application you use to read this web page.",
+    "id": 140,
+    "name": "Browser"
+}]

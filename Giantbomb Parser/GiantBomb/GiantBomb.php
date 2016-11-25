@@ -109,13 +109,13 @@ class GiantBomb {
     private function call($module, $params = array()) 
 	{
         if($this->API_calls>198){
-            echo "Esperar uma hora ResidentSleeper";
-            sleep(3600);
+            echo "Esperar um minuto ResidentSleeper";
+            sleep(60);
             $this->API_calls=0;
         }else{
             $this->API_calls++;
-            //0.2s
-            usleep(200000);
+            //0.5s
+            usleep(500000);
         }
 
         // set api data
