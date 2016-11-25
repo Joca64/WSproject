@@ -1,4 +1,4 @@
-[
+[,
 {
     "company": {
         "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
@@ -220,8 +220,230 @@
     "name": "Nintendo Switch"
 },
 {
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The successor to the SNES was Nintendo's entry in the fifth home console generation, as well as the company's first system designed specifically to handle polygonal 3D graphics.",
+    "id": 43,
+    "name": "Nintendo 64"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Wii Shop Channel is Nintendo's way of digitally distributing games. It includes WiiWare for newly developed games, as well as the Virtual Console for classic titles from various consoles and arcade systems.",
+    "id": 87,
+    "name": "Wii Shop"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo 3DS is a portable game console produced by Nintendo. The handheld features stereoscopic 3D technology that doesn't require glasses. It was released in Japan on February 26, 2011 and in North America on March 27, 2011.",
+    "id": 117,
+    "name": "Nintendo 3DS"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The products that make up the various segments of Nintendo's 3DS eShop include new releases, updated version of old games, and emulated versions of old games.",
+    "id": 138,
+    "name": "Nintendo 3DS eShop"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "PlayStation Vita is Sony's second handheld gaming device.",
+    "id": 129,
+    "name": "PlayStation Vita"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "This platform is specifically for PSP releases that are made available as digital downloads via the PlayStation Store. The Store includes PSP games (some exclusive to PSN), PSP Minis, PSone Classics, trailers, movies, TV shows, and digital comics.",
+    "id": 116,
+    "name": "PlayStation Network (PSP)"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "Microsoft's first home gaming system and one of the first to include an internal hard drive and built in online play capability. It was considered the first console to have fully supported meaningful online play.",
+    "id": 32,
+    "name": "Xbox"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "DSiWare is Nintendo's name for its downloadable games appearing on the new Nintendo DSi system.",
+    "id": 106,
+    "name": "DSiWare"
+},
+{
     "company": null,
     "deck": "Browser-based games are typically platform-independent pieces of software that run directly in the same application you use to read this web page.",
     "id": 140,
     "name": "Browser"
+},
+{
+    "company": null,
+    "deck": "Amazon is getting into the set-top box game with an Android-based device that launched alongside an optional game controller.",
+    "id": 155,
+    "name": "Amazon Fire TV"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "Sony's first video game console established the PlayStation brand. It dominated the 32\/64-bit era and was the best-selling home console up until the PlayStation 2.",
+    "id": 22,
+    "name": "PlayStation"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-1483\/",
+        "id": 1483,
+        "name": "Commodore Electronics Ltd."
+    },
+    "deck": "The Amiga was a personal computer from Commodore that was released in a variety of different configurations.",
+    "id": 1,
+    "name": "Amiga"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-548\/",
+        "id": 548,
+        "name": "Atari SA"
+    },
+    "deck": "Atari's 16-bit computer line was one of the most popular computers in the mid-80's to early 90's.",
+    "id": 13,
+    "name": "Atari ST"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-62\/",
+        "id": 62,
+        "name": "Sega"
+    },
+    "deck": "The Sega CD was one of the first CD-ROM based gaming consoles. The extra storage space this medium allowed gave rise to inclusion of full motion video, higher quality audio, and improved graphics in games.  ",
+    "id": 29,
+    "name": "Sega CD"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-6596\/",
+        "id": 6596,
+        "name": "Fujitsu"
+    },
+    "deck": "A proprietary 32-bit computer from Fujitsu, released in 1989 only in Japan. The first computer with a standard CD-ROM drive, it had many CD enhanced versions of Eastern and Western games (including action, adventure and RPG titles) which are sought after to this day by collectors. Its console version, FM Towns Marty, released in 1993 as the first 5th-gen console.",
+    "id": 108,
+    "name": "FM Towns"
+},
+{
+    "company": null,
+    "deck": "The CDTV was a repurposed Amiga 500 that focused on multimedia games and applications in the early 1990s.",
+    "id": 142,
+    "name": "Commodore CDTV"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Super Nintendo Entertainment System was the second home console released by Nintendo.",
+    "id": 9,
+    "name": "Super Nintendo Entertainment System"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The Apple iPod is a popular MP3 player that garnered a bit of game support due to its large market.  Support for games never took off until the newer, touch-screen iPod Touch and iPhones were released, and development of iPod Classic games has ceased.",
+    "id": 72,
+    "name": "iPod"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-7173\/",
+        "id": 7173,
+        "name": "Zeebo Inc."
+    },
+    "deck": "The Zeebo was a wireless network-enabled console primarily designed for emerging markets.",
+    "id": 122,
+    "name": "Zeebo"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The third platform in the Game Boy line, the Game Boy Advance was offered in a multitude of colors and had three hardware offerings, the sideways Game Boy Advance, the flip Game Boy Advance SP and the tiny Game Boy Advance Micro.",
+    "id": 4,
+    "name": "Game Boy Advance"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The NES, also known as Famicom, launched in 1983 in Japan and 1985 in North America, where the video game industry was headed downhill due to a deluge of poor games and over-saturation. Nintendo's second home console became an enormous success, establishing consoles as a mainstream market in Japan and pulling the North American industry back to its feet.",
+    "id": 21,
+    "name": "Nintendo Entertainment System"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Famicom Disk System was an add-on accessory for the Nintendo Entertainment System's Japanese counterpart. With its games coming on a floppy disk-like medium, many of its releases saw conversions to cartridges both overseas and within Japan.",
+    "id": 91,
+    "name": "Famicom Disk System"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "Nintendo's \"New 3DS\" adds some additional control functionality and horsepower, allowing for some games that can only run on the new hardware, not on Nintendo's original 3DS.",
+    "id": 156,
+    "name": "New Nintendo 3DS"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-763\/",
+        "id": 763,
+        "name": "Tapwave, Inc."
+    },
+    "deck": "A Palm based PDA\/Portable games console with a touch screen, which for a short time had an active homebrew community. It was released in two different editions with different amounts of onboard memory, the Zodiac 1 (32MB) and the Zodiac 2 (128MB).",
+    "id": 64,
+    "name": "Zodiac"
 }]

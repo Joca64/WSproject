@@ -133,7 +133,7 @@ do {
     }
     $offset+=$limit;
     $min_user_reviews = $games_ids->results[$limit-1]->number_of_user_reviews;
-} while ($min_user_reviews > 50);
+} while ($min_user_reviews > 10);
 
 file_put_contents($file_games, "]", FILE_APPEND | LOCK_EX);
 file_put_contents($file_platforms, "]", FILE_APPEND | LOCK_EX);

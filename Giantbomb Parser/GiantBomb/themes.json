@@ -1,4 +1,4 @@
-[
+[,
 {
     "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-13\/",
     "id": 13,
@@ -124,4 +124,52 @@
     "id": 24,
     "name": "Adult",
     "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=adult&wikiTypeId=3032&wikiId=24&theme=24"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-22\/",
+    "id": 22,
+    "name": "Abstract",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=abstract&wikiTypeId=3032&wikiId=22&theme=22"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-5\/",
+    "id": 5,
+    "name": "Dating",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=dating&wikiTypeId=3032&wikiId=5&theme=5"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-16\/",
+    "id": 16,
+    "name": "Anime",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=anime&wikiTypeId=3032&wikiId=16&theme=16"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-29\/",
+    "id": 29,
+    "name": "Game Show",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=game-show&wikiTypeId=3032&wikiId=29&theme=29"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-14\/",
+    "id": 14,
+    "name": "Mayan",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=mayan&wikiTypeId=3032&wikiId=14&theme=14"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-21\/",
+    "id": 21,
+    "name": "Management",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=management&wikiTypeId=3032&wikiId=21&theme=21"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-15\/",
+    "id": 15,
+    "name": "Egyptian",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=egyptian&wikiTypeId=3032&wikiId=15&theme=15"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/theme\/3032-28\/",
+    "id": 28,
+    "name": "Prehistoric",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=prehistoric&wikiTypeId=3032&wikiId=28&theme=28"
 }]

@@ -25,8 +25,8 @@
       <file leaf-file-name="GiantBomb.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GiantBomb/GiantBomb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="111" column="35" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="35" />
+            <state relative-caret-position="-1632">
+              <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
               <folding>
                 <element signature="e#6#263#0#PHP" expanded="true" />
               </folding>
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GiantBomb/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="103" column="21" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="21" />
+            <state relative-caret-position="423">
+              <caret line="135" column="31" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="31" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
               </folding>
@@ -51,7 +51,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-              <folding />
+              <folding>
+                <marker date="1480076709201" expanded="true" signature="0:2377541" ph="[...]" />
+                <marker date="1480076709201" expanded="true" signature="2377531:2377540" ph="{&quot;id&quot;: 9146...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,7 +64,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-              <folding />
+              <folding>
+                <marker date="1480076709185" expanded="true" signature="0:1250528" ph="[...]" />
+                <marker date="1480076709185" expanded="true" signature="1250524:1250527" ph="{&quot;id&quot;: 164...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,7 +77,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-              <folding />
+              <folding>
+                <marker date="1480076709170" expanded="true" signature="0:2033057" ph="[...]" />
+                <marker date="1480076709170" expanded="true" signature="2033037:2033048" ph="{&quot;id&quot;: 18...}" />
+                <marker date="1480076709170" expanded="true" signature="2033037:2033054" ph="[...]" />
+                <marker date="1480076709170" expanded="true" signature="2033037:2033056" ph="{&quot;id&quot;: 32085...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,7 +92,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-              <folding />
+              <folding>
+                <marker date="1480076709185" expanded="true" signature="0:8317" ph="[...]" />
+                <marker date="1480076709185" expanded="true" signature="8313:8316" ph="{&quot;id&quot;: 12...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,7 +105,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-              <folding />
+              <folding>
+                <marker date="1480076709170" expanded="true" signature="0:18153" ph="[...]" />
+                <marker date="1480076709170" expanded="true" signature="18149:18152" ph="{&quot;id&quot;: 140...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,19 +116,22 @@
       <file leaf-file-name="publishers.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GiantBomb/publishers.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+            <state relative-caret-position="-748">
+              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="themes.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="themes.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GiantBomb/themes.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="-1660">
+              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+              <folding>
+                <marker date="1480076709201" expanded="true" signature="0:6750" ph="[...]" />
+                <marker date="1480076709201" expanded="true" signature="6746:6749" ph="{&quot;id&quot;: 24...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,7 +150,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/GiantBomb/GiantBomb.php" />
-        <option value="$PROJECT_DIR$/GiantBomb/test.php" />
         <option value="$PROJECT_DIR$/GiantBomb/developers.json" />
         <option value="$PROJECT_DIR$/GiantBomb/franchises.json" />
         <option value="$PROJECT_DIR$/GiantBomb/games.json" />
@@ -138,6 +157,7 @@
         <option value="$PROJECT_DIR$/GiantBomb/platforms.json" />
         <option value="$PROJECT_DIR$/GiantBomb/publishers.json" />
         <option value="$PROJECT_DIR$/GiantBomb/themes.json" />
+        <option value="$PROJECT_DIR$/GiantBomb/test.php" />
       </list>
     </option>
   </component>
@@ -680,12 +700,12 @@
       <workItem from="1479658941229" duration="8861000" />
       <workItem from="1480049075599" duration="13271000" />
       <workItem from="1480063492184" duration="55000" />
-      <workItem from="1480064071531" duration="3857000" />
+      <workItem from="1480064071531" duration="4867000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26102000" />
+    <option name="totallyTimeSpent" value="27112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -821,10 +841,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GiantBomb/developers.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <marker date="1480076709201" expanded="true" signature="0:2377541" ph="[...]" />
+            <marker date="1480076709201" expanded="true" signature="2377531:2377540" ph="{&quot;id&quot;: 9146...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GiantBomb/franchises.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <marker date="1480076709185" expanded="true" signature="0:1250528" ph="[...]" />
+            <marker date="1480076709185" expanded="true" signature="1250524:1250527" ph="{&quot;id&quot;: 164...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GiantBomb/platforms.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <marker date="1480076709170" expanded="true" signature="0:18153" ph="[...]" />
+            <marker date="1480076709170" expanded="true" signature="18149:18152" ph="{&quot;id&quot;: 140...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GiantBomb/genres.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <marker date="1480076709185" expanded="true" signature="0:8317" ph="[...]" />
+            <marker date="1480076709185" expanded="true" signature="8313:8316" ph="{&quot;id&quot;: 12...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GiantBomb/games.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <marker date="1480076709170" expanded="true" signature="0:2033057" ph="[...]" />
+            <marker date="1480076709170" expanded="true" signature="2033037:2033048" ph="{&quot;id&quot;: 18...}" />
+            <marker date="1480076709170" expanded="true" signature="2033037:2033054" ph="[...]" />
+            <marker date="1480076709170" expanded="true" signature="2033037:2033056" ph="{&quot;id&quot;: 32085...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GiantBomb/themes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1660">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <marker date="1480076709201" expanded="true" signature="0:6750" ph="[...]" />
+            <marker date="1480076709201" expanded="true" signature="6746:6749" ph="{&quot;id&quot;: 24...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GiantBomb/publishers.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-748">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GiantBomb/GiantBomb.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="111" column="35" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="35" />
+        <state relative-caret-position="-1632">
+          <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
           <folding>
             <element signature="e#6#263#0#PHP" expanded="true" />
           </folding>
@@ -833,67 +929,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GiantBomb/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="103" column="21" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="21" />
+        <state relative-caret-position="423">
+          <caret line="135" column="31" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="31" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GiantBomb/developers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GiantBomb/franchises.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GiantBomb/games.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GiantBomb/genres.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GiantBomb/platforms.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GiantBomb/publishers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GiantBomb/themes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-[
+[,
 {
     "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-1\/",
     "id": 1,
@@ -76,4 +76,136 @@
     "id": 12,
     "name": "Real-Time Strategy",
     "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=real-time-strategy&wikiTypeId=3060&wikiId=12&genre=12"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-2\/",
+    "id": 2,
+    "name": "Strategy",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=strategy&wikiTypeId=3060&wikiId=2&genre=2"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-19\/",
+    "id": 19,
+    "name": "Music\/Rhythm",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=musicrhythm&wikiTypeId=3060&wikiId=19&genre=19"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-31\/",
+    "id": 31,
+    "name": "Dual-Joystick Shooter",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=dual-joystick-shooter&wikiTypeId=3060&wikiId=31&genre=31"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-7\/",
+    "id": 7,
+    "name": "Simulation",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=simulation&wikiTypeId=3060&wikiId=7&genre=7"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-16\/",
+    "id": 16,
+    "name": "MMORPG",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=mmorpg&wikiTypeId=3060&wikiId=16&genre=16"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-3\/",
+    "id": 3,
+    "name": "Sports",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=sports&wikiTypeId=3060&wikiId=3&genre=3"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-17\/",
+    "id": 17,
+    "name": "Minigame Collection",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=minigame-collection&wikiTypeId=3060&wikiId=17&genre=17"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-20\/",
+    "id": 20,
+    "name": "Boxing",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=boxing&wikiTypeId=3060&wikiId=20&genre=20"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-25\/",
+    "id": 25,
+    "name": "Tennis",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=tennis&wikiTypeId=3060&wikiId=25&genre=25"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-28\/",
+    "id": 28,
+    "name": "Golf",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=golf&wikiTypeId=3060&wikiId=28&genre=28"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-29\/",
+    "id": 29,
+    "name": "Bowling",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=bowling&wikiTypeId=3060&wikiId=29&genre=29"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-34\/",
+    "id": 34,
+    "name": "Baseball",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=baseball&wikiTypeId=3060&wikiId=34&genre=34"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-23\/",
+    "id": 23,
+    "name": "Skateboarding",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=skateboarding&wikiTypeId=3060&wikiId=23&genre=23"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-45\/",
+    "id": 45,
+    "name": "Block-Breaking",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=block-breaking&wikiTypeId=3060&wikiId=45&genre=45"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-48\/",
+    "id": 48,
+    "name": "Shoot 'Em Up",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=shoot-em-up&wikiTypeId=3060&wikiId=48&genre=48"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-15\/",
+    "id": 15,
+    "name": "Compilation",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=compilation&wikiTypeId=3060&wikiId=15&genre=15"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-10\/",
+    "id": 10,
+    "name": "Wrestling",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=wrestling&wikiTypeId=3060&wikiId=10&genre=10"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-35\/",
+    "id": 35,
+    "name": "Light-Gun Shooter",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=light-gun-shooter&wikiTypeId=3060&wikiId=35&genre=35"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-33\/",
+    "id": 33,
+    "name": "Snowboarding\/Skiing",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=snowboardingskiing&wikiTypeId=3060&wikiId=33&genre=33"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-24\/",
+    "id": 24,
+    "name": "Flight Simulator",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=flight-simulator&wikiTypeId=3060&wikiId=24&genre=24"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-50\/",
+    "id": 50,
+    "name": "MOBA",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=moba&wikiTypeId=3060&wikiId=50&genre=50"
+},
+{
+    "api_detail_url": "http:\/\/www.giantbomb.com\/api\/genre\/3060-14\/",
+    "id": 14,
+    "name": "Trivia\/Board Game",
+    "site_detail_url": "http:\/\/www.giantbomb.com\/games\/?wikiSlug=triviaboard-game&wikiTypeId=3060&wikiId=14&genre=14"
 }]
