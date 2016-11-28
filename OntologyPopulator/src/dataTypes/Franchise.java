@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Franchise
 {
-    private String id;
+    private int id;
     private String name;
     private String description;
     private ArrayList<Game> games;
 
-    Franchise(String id, String name, String description)
+    public Franchise(int id, String name, String description)
     {
         this.id = id;
         this.name = name;
@@ -17,9 +17,9 @@ public class Franchise
         this.games = new ArrayList<Game>();
     }
 
-    public String getId() { return id; }
+    public int getId() { return id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getName() { return name; }
 
@@ -36,4 +36,6 @@ public class Franchise
     public void addGame(Game game) { this.games.add(game); }
 
     public Game getGame(int index) { return this.games.get(index); }
+
+    public String toString() { return this.getName(); }
 }

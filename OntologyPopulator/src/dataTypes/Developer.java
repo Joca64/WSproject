@@ -7,7 +7,7 @@ public class Developer extends Company
     private ArrayList<Game> gamesDeveloped;
     private int totalGamesDeveloped;
 
-    public Developer(String id, String name, String description, String website, String country)
+    public Developer(int id, String name, String description, String website, String country)
     {
         super(id, name, description, website, country);
         this.gamesDeveloped = new ArrayList<Game>();

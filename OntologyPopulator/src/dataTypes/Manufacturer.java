@@ -7,7 +7,7 @@ public class Manufacturer extends Company
     private ArrayList<Platform> manufacturedPlatforms;
     private int totalPlatformsManufactured;
 
-    public Manufacturer(String id, String name, String description, String website, String country)
+    public Manufacturer(int id, String name, String description, String website, String country)
     {
         super(id, name, description, website, country);
         this.manufacturedPlatforms = new ArrayList<Platform>();

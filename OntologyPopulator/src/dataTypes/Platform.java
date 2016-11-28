@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Platform
 {
-    private String id;
+    private int id;
     private String name;
     private String description;
     private Manufacturer manufacturer;
     private ArrayList<Game> games;
 
 
-    public Platform(String id, String name, String description, Manufacturer manufacturer)
+    public Platform(int id, String name, String description, Manufacturer manufacturer)
     {
         this.id = id;
         this.name = name;
@@ -20,9 +20,9 @@ public class Platform
         this.games = new ArrayList<Game>();
     }
 
-    public String getId() { return id; }
+    public int getId() { return id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getName() { return name; }
 

@@ -2,13 +2,13 @@ package dataTypes;
 
 public class Company
 {
-    private String id;
+    private int id;
     private String name;
     private String description;
     private String website;
     private String country;
 
-    public Company(String id, String name, String description, String website, String country)
+    public Company(int id, String name, String description, String website, String country)
     {
         this.id = id;
         this.name = name;
@@ -17,9 +17,9 @@ public class Company
         this.country = country;
     }
 
-    public String getId() { return id; }
+    public int getId() { return id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getName() { return name; }
 

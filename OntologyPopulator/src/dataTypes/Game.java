@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Game
 {
-    private String id;
+    private int id;
     private String name;
     private String description;
     private ArrayList<Platform> platforms;
@@ -15,7 +15,7 @@ public class Game
     private ArrayList<Developer> developers;
     private ArrayList<Publisher> publishers;
 
-    public Game(String id, String name, String description)
+    public Game(int id, String name, String description, String image)
     {
         this.id = id;
         this.name = name;
@@ -24,12 +24,12 @@ public class Game
         this.developers = new ArrayList<Developer>();
         this.publishers = new ArrayList<Publisher>();
         this.franchises = new ArrayList<Franchise>();
-        this.image = "";
+        this.image = image;
         this.genres = new ArrayList<String>();
         this.themes = new ArrayList<String>();
     }
 
-    public Game(String id, String name, String description, ArrayList<Platform> platforms, ArrayList<Publisher> publishers,
+    public Game(int id, String name, String description, String image, ArrayList<Platform> platforms, ArrayList<Publisher> publishers,
                 ArrayList<Developer> developers, ArrayList<Franchise> franchises, ArrayList<String> genres, ArrayList<String> themes)
     {
         this.id = id;
@@ -39,14 +39,14 @@ public class Game
         this.developers = developers;
         this.publishers = publishers;
         this.franchises = franchises;
-        this.image = "";
+        this.image = image;
         this.genres = genres;
         this.themes = themes;
     }
 
-    public String getId() { return id; }
+    public int getId() { return id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getName() { return name; }
 
@@ -95,4 +95,30 @@ public class Game
     public Publisher getPublisher(int index) { return this.publishers.get(index); }
 
     public void addPublisher(Publisher publisher) { this.publishers.add(publisher); }
+
+    public String toString(){
+        StringBuilder game_string = new StringBuilder();
+        game_string.append("["+id+"]");
+        game_string.append(name+":");
+        for(String g: this.genres){
+            game_string.append(g+",");
+        }
+        game_string.append(":");
+        for(String t: this.themes){
+            game_string.append(t+",");
+        }
+        game_string.append(":");
+        for(Franchise f: this.franchises){
+            game_string.append(f.getName()+",");
+        }
+        game_string.append(":");
+        for(Publisher p: this.publishers){
+            game_string.append(p.getName()+",");
+        }
+        game_string.append(":");
+        for(Developer d: this.developers){
+            game_string.append(d.getName()+",");
+        }
+        return game_string.toString();
+    }
 }

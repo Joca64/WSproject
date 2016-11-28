@@ -1,0 +1,449 @@
+[
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "The Xbox 360 is the second game console produced by Microsoft Corporation and is the successor to the original Xbox.",
+    "id": 20,
+    "name": "Xbox 360"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "The PlayStation 3 (often abbreviated PS3) is the third home video game console created and released by Sony Computer Entertainment Inc.",
+    "id": 35,
+    "name": "PlayStation 3"
+},
+{
+    "company": null,
+    "deck": "The PC (Personal Computer) is a highly configurable and upgradable gaming platform that, among home systems, sports the widest variety of control methods, largest library of games, and cutting edge graphics and sound capabilities.",
+    "id": 94,
+    "name": "PC"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "Xbox Live Games Store is an online store for the Xbox 360 and Xbox One which allows users to purchase games digitally.",
+    "id": 86,
+    "name": "Xbox 360 Games Store"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "The PlayStation Network is the online service by Sony Computer Entertainment, providing downloads of games, trailers, themes and much more. The service is free, but also offers a paid version for various benefits.",
+    "id": 88,
+    "name": "PlayStation Network (PS3)"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The Macintosh (Mac) line of personal computers is designed and developed by Apple, Inc. - formerly Apple Computer, Inc. It runs an operating system called Mac OS. Its current version, Mac OS X 10.11 \"El Capitan,\" was released September 30th, 2015.",
+    "id": 17,
+    "name": "Mac"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "The Xbox One is Microsoft's third video game console. It was released on November 22nd 2013 in 13 countries.",
+    "id": 145,
+    "name": "Xbox One"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "PlayStation 4 is Sony's fourth home video game console, released on November 15, 2013 in North America, and November 29, 2013 in Europe.",
+    "id": 146,
+    "name": "PlayStation 4"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The iPhone is a multimedia multi-touch smartphone created by Apple Inc.",
+    "id": 96,
+    "name": "iPhone"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The iPad is a \"multimedia tablet computer\" with a 9.7\" touchscreen, and has a 7.9\" derivative, the iPad mini. The iPad can browse the web, playback local and streamed content, and run a large variety of third party apps, including games.",
+    "id": 121,
+    "name": "iPad"
+},
+{
+    "company": null,
+    "deck": "The Ouya is an Android-based device that hooks up to TVs and plays video games.",
+    "id": 154,
+    "name": "Ouya"
+},
+{
+    "company": null,
+    "deck": "Google's mobile OS is spread across multiple devices.",
+    "id": 123,
+    "name": "Android"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "PlayStation Portable (PSP) is Sony's first entry into the handheld gaming market. The PSP also sports multimedia features including music and video playback, a photo viewer, and an online store. Several model revisions have been released: the PSP-2000, 3000, PSPgo and the PSP-E1000.",
+    "id": 18,
+    "name": "PlayStation Portable"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "Sony's PlayStation 2 is the second home video game console produced by Sony Computer Entertainment Incorporated, and to date is the best-selling home console of all time, with an install base of 150 million units since its launch.",
+    "id": 19,
+    "name": "PlayStation 2"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-739\/",
+        "id": 739,
+        "name": "Nokia"
+    },
+    "deck": "The N-Gage (later re-released as N-Gage QD) was a failed gaming platform developed by phone manufacturer Nokia. Games in MMC-Card format were sold for the platform, and towards the end, games were available for download to your own MMC. ",
+    "id": 34,
+    "name": "N-Gage"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo Wii is a home video game console released on November 19, 2006. The Wii's main selling point was the innovative use of motion controls that its signature Wii Remote and Nunchuk controllers allowed for. It became the best selling home console of its respective generation of hardware.",
+    "id": 36,
+    "name": "Wii"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo DS is a handheld featuring two screens, one of which is a resistive touchscreen. Four different models are available: the original DS, the DS Lite, the DSi, the DSi XL.",
+    "id": 52,
+    "name": "Nintendo DS"
+},
+{
+    "company": null,
+    "deck": "The Linux operating system was initially released in 1991 and has gone on to become a very popular free alternative to other, commercial systems.",
+    "id": 152,
+    "name": "Linux"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "The PlayStation Network is Sony's digital storefront for delivering games, add-ons, and other content. This specific platform page focuses on the PlayStation Vita version of said storefront.",
+    "id": 143,
+    "name": "PlayStation Network (Vita)"
+},
+{
+    "company": null,
+    "deck": "Stand-alone machines that generally only play one video game each. Arcades began the game industry and peaked in popularity before home consoles took over the gaming public. Arcade games usually cost 25 cents, or 100 yen, per play. Known for the most cutting-edge technology of their time, arcades have the largest video game library, and greatest variety of control methods, of any platform.",
+    "id": 84,
+    "name": "Arcade"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo Wii U, the follow-up to the monstrously popular Nintendo Wii console, launched in North America on November 18th 2012.",
+    "id": 139,
+    "name": "Wii U"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "Windows Phone allows mobile games to tie into Microsoft's existing Xbox Live infrastructure, including accounts, avatars, and achievements.",
+    "id": 124,
+    "name": "Windows Phone"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo GameCube is a sixth generation video game console released by Nintendo on September 15, 2001 in Japan, November 18, 2001 in North America, May 3, 2002 in Europe, and May 17, 2002 in Australia.",
+    "id": 23,
+    "name": "GameCube"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "Previously known as the \"NX,\" Nintendo revealed their hybrid home console and portable gaming device on October 20, 2016.",
+    "id": 157,
+    "name": "Nintendo Switch"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The successor to the SNES was Nintendo's entry in the fifth home console generation, as well as the company's first system designed specifically to handle polygonal 3D graphics.",
+    "id": 43,
+    "name": "Nintendo 64"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Wii Shop Channel is Nintendo's way of digitally distributing games. It includes WiiWare for newly developed games, as well as the Virtual Console for classic titles from various consoles and arcade systems.",
+    "id": 87,
+    "name": "Wii Shop"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Nintendo 3DS is a portable game console produced by Nintendo. The handheld features stereoscopic 3D technology that doesn't require glasses. It was released in Japan on February 26, 2011 and in North America on March 27, 2011.",
+    "id": 117,
+    "name": "Nintendo 3DS"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The products that make up the various segments of Nintendo's 3DS eShop include new releases, updated version of old games, and emulated versions of old games.",
+    "id": 138,
+    "name": "Nintendo 3DS eShop"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "PlayStation Vita is Sony's second handheld gaming device.",
+    "id": 129,
+    "name": "PlayStation Vita"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "This platform is specifically for PSP releases that are made available as digital downloads via the PlayStation Store. The Store includes PSP games (some exclusive to PSN), PSP Minis, PSone Classics, trailers, movies, TV shows, and digital comics.",
+    "id": 116,
+    "name": "PlayStation Network (PSP)"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-340\/",
+        "id": 340,
+        "name": "Microsoft Studios"
+    },
+    "deck": "Microsoft's first home gaming system and one of the first to include an internal hard drive and built in online play capability. It was considered the first console to have fully supported meaningful online play.",
+    "id": 32,
+    "name": "Xbox"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "DSiWare is Nintendo's name for its downloadable games appearing on the new Nintendo DSi system.",
+    "id": 106,
+    "name": "DSiWare"
+},
+{
+    "company": null,
+    "deck": "Browser-based games are typically platform-independent pieces of software that run directly in the same application you use to read this web page.",
+    "id": 140,
+    "name": "Browser"
+},
+{
+    "company": null,
+    "deck": "Amazon is getting into the set-top box game with an Android-based device that launched alongside an optional game controller.",
+    "id": 155,
+    "name": "Amazon Fire TV"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-995\/",
+        "id": 995,
+        "name": "Sony Interactive Entertainment"
+    },
+    "deck": "Sony's first video game console established the PlayStation brand. It dominated the 32\/64-bit era and was the best-selling home console up until the PlayStation 2.",
+    "id": 22,
+    "name": "PlayStation"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-1483\/",
+        "id": 1483,
+        "name": "Commodore Electronics Ltd."
+    },
+    "deck": "The Amiga was a personal computer from Commodore that was released in a variety of different configurations.",
+    "id": 1,
+    "name": "Amiga"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-548\/",
+        "id": 548,
+        "name": "Atari SA"
+    },
+    "deck": "Atari's 16-bit computer line was one of the most popular computers in the mid-80's to early 90's.",
+    "id": 13,
+    "name": "Atari ST"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-62\/",
+        "id": 62,
+        "name": "Sega"
+    },
+    "deck": "The Sega CD was one of the first CD-ROM based gaming consoles. The extra storage space this medium allowed gave rise to inclusion of full motion video, higher quality audio, and improved graphics in games.  ",
+    "id": 29,
+    "name": "Sega CD"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-6596\/",
+        "id": 6596,
+        "name": "Fujitsu"
+    },
+    "deck": "A proprietary 32-bit computer from Fujitsu, released in 1989 only in Japan. The first computer with a standard CD-ROM drive, it had many CD enhanced versions of Eastern and Western games (including action, adventure and RPG titles) which are sought after to this day by collectors. Its console version, FM Towns Marty, released in 1993 as the first 5th-gen console.",
+    "id": 108,
+    "name": "FM Towns"
+},
+{
+    "company": null,
+    "deck": "The CDTV was a repurposed Amiga 500 that focused on multimedia games and applications in the early 1990s.",
+    "id": 142,
+    "name": "Commodore CDTV"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Super Nintendo Entertainment System was the second home console released by Nintendo.",
+    "id": 9,
+    "name": "Super Nintendo Entertainment System"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-5815\/",
+        "id": 5815,
+        "name": "Apple Inc."
+    },
+    "deck": "The Apple iPod is a popular MP3 player that garnered a bit of game support due to its large market.  Support for games never took off until the newer, touch-screen iPod Touch and iPhones were released, and development of iPod Classic games has ceased.",
+    "id": 72,
+    "name": "iPod"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-7173\/",
+        "id": 7173,
+        "name": "Zeebo Inc."
+    },
+    "deck": "The Zeebo was a wireless network-enabled console primarily designed for emerging markets.",
+    "id": 122,
+    "name": "Zeebo"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The third platform in the Game Boy line, the Game Boy Advance was offered in a multitude of colors and had three hardware offerings, the sideways Game Boy Advance, the flip Game Boy Advance SP and the tiny Game Boy Advance Micro.",
+    "id": 4,
+    "name": "Game Boy Advance"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The NES, also known as Famicom, launched in 1983 in Japan and 1985 in North America, where the video game industry was headed downhill due to a deluge of poor games and over-saturation. Nintendo's second home console became an enormous success, establishing consoles as a mainstream market in Japan and pulling the North American industry back to its feet.",
+    "id": 21,
+    "name": "Nintendo Entertainment System"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "The Famicom Disk System was an add-on accessory for the Nintendo Entertainment System's Japanese counterpart. With its games coming on a floppy disk-like medium, many of its releases saw conversions to cartridges both overseas and within Japan.",
+    "id": 91,
+    "name": "Famicom Disk System"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-90\/",
+        "id": 90,
+        "name": "Nintendo"
+    },
+    "deck": "Nintendo's \"New 3DS\" adds some additional control functionality and horsepower, allowing for some games that can only run on the new hardware, not on Nintendo's original 3DS.",
+    "id": 156,
+    "name": "New Nintendo 3DS"
+},
+{
+    "company": {
+        "api_detail_url": "http:\/\/www.giantbomb.com\/api\/company\/3010-763\/",
+        "id": 763,
+        "name": "Tapwave, Inc."
+    },
+    "deck": "A Palm based PDA\/Portable games console with a touch screen, which for a short time had an active homebrew community. It was released in two different editions with different amounts of onboard memory, the Zodiac 1 (32MB) and the Zodiac 2 (128MB).",
+    "id": 64,
+    "name": "Zodiac"
+}]
