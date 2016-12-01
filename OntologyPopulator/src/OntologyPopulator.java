@@ -1,29 +1,69 @@
 import dataTypes.*;
 
+import org.apache.jena.ontology.Individual;
+import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
-import org.apache.jena.query.Dataset;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.RDFReader;
-import org.apache.jena.tdb.TDBFactory;
-import org.apache.jena.util.FileManager;
+import org.apache.jena.rdf.model.Property;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashMap;
 
 public class OntologyPopulator
 {
-    //private OntModel ontologyModel;
-    //private String namespace;
+    private static OntologyPopulator ont;
+    private OntModel ontologyModel;
+    private static String namespace;
+
+    private static OntClass game;
+    private static OntClass franchise;
+    private static OntClass developer;
+    private static OntClass publisher;
+    private static OntClass manufacturer;
+    private static OntClass platform;
+
+    private static Property belongsToFranchise;
+    private static Property developedForPlatform;
+    private static Property hasBeenManufacturedBy;
+    private static Property hasDeveloped;
+    private static Property hasGame;
+    private static Property hasGameDevelopedFor;
+    private static Property hasManufactured;
+    private static Property hasPublished;
+    private static Property isDevelopedBy;
+    private static Property isPublishedBy;
+
+    private static Property hasCompanyCountry;
+    private static Property hasCompanyDescription;
+    private static Property hasCompanyID;
+    private static Property hasCompanyName;
+    private static Property hasCompanyWebsite;
+    private static Property hasDevelopedGamesTotal;
+    private static Property hasFranchiseDescription;
+    private static Property hasFranchiseID;
+    private static Property hasFranchiseName;
+    private static Property hasGameDescription;
+    private static Property hasGameGenre;
+    private static Property hasGameID;
+    private static Property hasGameImage;
+    private static Property hasGameName;
+    private static Property hasGameTheme;
+    private static Property hasManufacturedTotal;
+    private static Property hasPlatformDescription;
+    private static Property hasPlatformID;
+    private static Property hasPlatformName;
+    private static Property hasPublishedGamesTotal;
+
+
+    HashMap<String, Individual> devMap = new HashMap<String, Individual>();
+    HashMap<String, Individual> pubMap = new HashMap<String, Individual>();
+    HashMap<String, Individual> platMap = new HashMap<String, Individual>();
+    HashMap<String, Individual> franMap = new HashMap<String, Individual>();
 
     ArrayList<Game> games;
     ArrayList<Franchise> franchises;
@@ -34,10 +74,10 @@ public class OntologyPopulator
 
 
     public OntologyPopulator(String filepath, String type){
-        //ontologyModel = ModelFactory.createOntologyModel();
-        //ontologyModel.read(filepath, type);
-        //namespace = ontologyModel.getNsPrefixURI("");
-        //System.out.println(namespace);
+        ontologyModel = ModelFactory.createOntologyModel();
+        ontologyModel.read(filepath, type);
+        namespace = ontologyModel.getNsPrefixURI("") + "#";
+        System.out.println(namespace);
 
         this.games = new ArrayList<Game>();
         this.franchises = new ArrayList<Franchise>();
@@ -75,7 +115,7 @@ public class OntologyPopulator
             //System.out.print(p.getTotalGamesPublished() + ":");
         }
 
-        printGames();
+        //printGames();
     }
 
     public void printGames(){
@@ -136,6 +176,8 @@ public class OntologyPopulator
             }
         }else{
             String description = (String) franchise.get("deck");
+            if(description == null)
+                description = "N/A";
             String name = (String) franchise.get("name");
             Franchise new_franchise = new Franchise(id, name, description);
             franchises.add(new_franchise);
@@ -185,10 +227,14 @@ public class OntologyPopulator
         }else{
             String name = (String) developer.get("name");
             String description = (String) developer.get("deck");
+            if(description == null)
+                description = "N/A";
             String country = (String) developer.get("location_country");
+            if(country == null)
+                country = "N/A";
             String website = (String) developer.get("website");
             if(website==null)
-                website = new String("http://no.website");
+                website = "N/A";
             Developer new_developer = new Developer(id, name, description, website, country);
 
             developers.add(new_developer);
@@ -238,10 +284,14 @@ public class OntologyPopulator
         }else{
             String name = (String) publisher.get("name");
             String description = (String) publisher.get("deck");
+            if(description== null)
+                description = "N/A";
             String country = (String) publisher.get("location_country");
+            if(country == null)
+                country = "N/A";
             String website = (String) publisher.get("website");
             if(website==null)
-                website = new String("http://no.website");
+                website = "N/A";
             Publisher new_publisher = new Publisher(id, name, description, website, country);
             publishers.add(new_publisher);
         }
@@ -281,7 +331,7 @@ public class OntologyPopulator
                 if(m_temp==null){
                     String m_name = (String) manufacturer.get("name");
                     String m_description = (String) manufacturer.get("api_detail_url");
-                    m_temp = new Manufacturer(m_id, m_name, m_description, "http://no.website", null);
+                    m_temp = new Manufacturer(m_id, m_name, m_description, "N/A", "N/A");
                     manufacturers.add(m_temp);
                 }
                 Platform new_platform = new Platform(id, name, description, m_temp);
@@ -472,30 +522,76 @@ public class OntologyPopulator
     }
 
     public static void main( String[] args ) {
-        OntologyPopulator ont = new OntologyPopulator("resources/ontology_games.owl", "RDF/XML");
+        ont = new OntologyPopulator("resources/ontology_games.owl", "RDF/XML");
 
-        Collection<Object> a = new ArrayList<Object>();
-        a.add(ont.platforms);
+        //Classes
+        game = ont.ontologyModel.getOntClass(namespace + "Game");
+        developer = ont.ontologyModel.getOntClass(namespace + "Developer");
+        publisher = ont.ontologyModel.getOntClass(namespace + "Publisher");
+        manufacturer = ont.ontologyModel.getOntClass(namespace + "Manufacturer");
+        franchise = ont.ontologyModel.getOntClass(namespace + "Franchise");
+        platform = ont.ontologyModel.getOntClass(namespace + "Platform");
 
+        //Object properties
+        belongsToFranchise = ont.ontologyModel.getObjectProperty(namespace + "belongsToFranchise");
+        developedForPlatform = ont.ontologyModel.getObjectProperty(namespace + "developedForPlatform");
+        hasBeenManufacturedBy = ont.ontologyModel.getObjectProperty(namespace + "hasBeenManufacturedBy");
+        hasDeveloped = ont.ontologyModel.getObjectProperty(namespace + "hasDeveloped");
+        hasGame = ont.ontologyModel.getObjectProperty(namespace + "hasGame");
+        hasGameDevelopedFor = ont.ontologyModel.getObjectProperty(namespace + "hasGameDevelopedFor");
+        hasManufactured = ont.ontologyModel.getObjectProperty(namespace + "hasManufactured");
+        hasPublished = ont.ontologyModel.getObjectProperty(namespace + "hasPublished");
+        isDevelopedBy = ont.ontologyModel.getObjectProperty(namespace + "isDevelopedBy");
+        isPublishedBy = ont.ontologyModel.getObjectProperty(namespace + "isPublishedBy");
 
+        //Data properties
+        hasCompanyCountry = ont.ontologyModel.getDatatypeProperty(namespace + "hasCompanyCountry");
+        hasCompanyDescription = ont.ontologyModel.getDatatypeProperty(namespace + "hasCompanyDescription");
+        hasCompanyID = ont.ontologyModel.getDatatypeProperty(namespace + "hasCompanyID");
+        hasCompanyName = ont.ontologyModel.getDatatypeProperty(namespace + "hasCompanyName");
+        hasCompanyWebsite = ont.ontologyModel.getDatatypeProperty(namespace + "hasCompanyWebsite");
+        hasDevelopedGamesTotal = ont.ontologyModel.getDatatypeProperty(namespace + "hasDevelopedGamesTotal");
+        hasFranchiseDescription = ont.ontologyModel.getDatatypeProperty(namespace + "hasFranchiseDescription");
+        hasFranchiseID = ont.ontologyModel.getDatatypeProperty(namespace + "hasFranchiseID");
+        hasFranchiseName = ont.ontologyModel.getDatatypeProperty(namespace + "hasFranchiseName");
+        hasGameDescription = ont.ontologyModel.getDatatypeProperty(namespace + "hasGameDescription");
+        hasGameGenre = ont.ontologyModel.getDatatypeProperty(namespace + "hasGameGenre");
+        hasGameID = ont.ontologyModel.getDatatypeProperty(namespace + "hasGameID");
+        hasGameImage = ont.ontologyModel.getDatatypeProperty(namespace + "hasGameImage");
+        hasGameName = ont.ontologyModel.getDatatypeProperty(namespace + "hasGameName");
+        hasGameTheme = ont.ontologyModel.getDatatypeProperty(namespace + "hasGameTheme");
+        hasManufacturedTotal = ont.ontologyModel.getDatatypeProperty(namespace + "hasManufacturedTotal");
+        hasPlatformDescription = ont.ontologyModel.getDatatypeProperty(namespace + "hasPlatformDescription");
+        hasPlatformID = ont.ontologyModel.getDatatypeProperty(namespace + "hasPlatformID");
+        hasPlatformName = ont.ontologyModel.getDatatypeProperty(namespace + "hasPlatformName");
+        hasPublishedGamesTotal = ont.ontologyModel.getDatatypeProperty(namespace + "hasPublishedGamesTotal");
 
+        createPublisher();
+        System.out.println("PUBLISHERS DONE");
+        createDeveloper();
+        System.out.println("DEVELOPERS DONE");
+        createManufacturer();
+        System.out.println("MANUFACTURERS DONE");
+        createPlatform();
+        System.out.println("PLATFORMS DONE");
+        createFranchise();
+        System.out.println("FRANCHISES DONE");
+        createGame();
+        System.out.println("GAMES DONE\nWRITING...");
 
-        /*Game test = ont.games.get(0);
-        System.out.println(test.toString());
-        System.out.println(test.getDescription().toString());
+        OutputStream out;
+        try {
+            out = new FileOutputStream("resources/ontology_generated.owl");
+            ont.ontologyModel.write(out, "RDF/XML");
 
-        ArrayList<Franchise> plats = ont.franchises;
-        for(Franchise blah : plats)
+            ont.ontologyModel.close();
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e)
         {
-            ArrayList<Game> irra = blah.getGames();
-            for(Game aushd : irra)
-                System.out.println(aushd.toString());
-            System.out.println("---------------");
-        }*/
-
-
-
-
+            e.printStackTrace();
+        }
 
         /*Dataset dataset = TDBFactory.createDataset("dataset1");
         Model tdb = dataset.getDefaultModel();
@@ -503,5 +599,213 @@ public class OntologyPopulator
         System.out.println(tdb.toString());
         tdb.close();
         dataset.close();*/
+    }
+
+    private static void createFranchise()
+    {
+        for(Franchise tempFran : ont.franchises)
+        {
+            Individual newFran = ont.ontologyModel.createIndividual(namespace + "F" + tempFran.getId(), franchise);
+            ont.franMap.put(namespace + "F" + tempFran.getId(), newFran);
+
+            for(Game temp : tempFran.getGames())
+            {
+                String identifier = namespace + "G" + temp.getId();
+                Individual tempInd = ont.ontologyModel.getIndividual(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, game);
+
+                newFran.addProperty(hasGame, tempInd);
+            }
+
+            newFran.addLiteral(hasFranchiseDescription, tempFran.getDescription());
+            newFran.addLiteral(hasFranchiseID, tempFran.getId());
+            newFran.addLiteral(hasFranchiseName, tempFran.getName());
+        }
+    }
+
+    private static void createPlatform()
+    {
+        for(Platform tempPlat : ont.platforms)
+        {
+            Individual newPlat = ont.ontologyModel.createIndividual(namespace + "P" + tempPlat.getId(), platform);
+            ont.platMap.put(namespace + "P" + tempPlat.getId(), newPlat);
+
+            String identifier;
+            Individual tempInd;
+            if(tempPlat.getManufacturer() != null)
+            {
+                identifier = namespace + "P" + tempPlat.getManufacturer().getId();
+                tempInd = ont.ontologyModel.getIndividual(identifier);
+
+                if (tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, manufacturer);
+
+                newPlat.addProperty(hasBeenManufacturedBy, tempInd);
+            }
+
+
+            for(Game temp : tempPlat.getGames())
+            {
+                identifier = namespace + "G" + temp.getId();
+                tempInd = ont.ontologyModel.getIndividual(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, game);
+
+                newPlat.addProperty(hasGameDevelopedFor, tempInd);
+            }
+
+            newPlat.addLiteral(hasPlatformDescription, tempPlat.getDescription());
+            newPlat.addLiteral(hasPlatformID, tempPlat.getId());
+            newPlat.addLiteral(hasPlatformName, tempPlat.getName());
+        }
+    }
+
+    private static void createManufacturer()
+    {
+        for(Manufacturer tempMan : ont.manufacturers)
+        {
+            Individual newMan = ont.ontologyModel.createIndividual(namespace + "M" + tempMan.getId(), manufacturer);
+
+            for(Platform temp : tempMan.getManufacturedPlatforms())
+            {
+                String identifier = namespace + "P" + temp.getId();
+                Individual tempInd = ont.ontologyModel.getIndividual(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, platform);
+
+                newMan.addProperty(hasManufactured, tempInd);
+            }
+
+            newMan.addLiteral(hasCompanyCountry, tempMan.getCountry());
+            newMan.addLiteral(hasCompanyDescription, tempMan.getDescription());
+            newMan.addLiteral(hasCompanyID, tempMan.getId());
+            newMan.addLiteral(hasCompanyName, tempMan.getName());
+            newMan.addLiteral(hasCompanyWebsite, tempMan.getWebsite());
+            newMan.addLiteral(hasManufacturedTotal, tempMan.getTotalPlatformsManufactured());
+        }
+    }
+
+    private static void createDeveloper()
+    {
+        for(Developer tempDev : ont.developers)
+        {
+            Individual newDev = ont.ontologyModel.createIndividual(namespace + "D" + tempDev.getId(), developer);
+            ont.devMap.put(namespace + "D" + tempDev.getId(), newDev);
+
+            for(Game temp : tempDev.getGamesDeveloped())
+            {
+                String identifier = namespace + "G" + temp.getId();
+                Individual tempInd = ont.ontologyModel.getIndividual(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, game);
+
+                newDev.addProperty(hasDeveloped, tempInd);
+            }
+
+            newDev.addLiteral(hasCompanyCountry, tempDev.getCountry());
+            newDev.addLiteral(hasCompanyDescription, tempDev.getDescription());
+            newDev.addLiteral(hasCompanyID, tempDev.getId());
+            newDev.addLiteral(hasCompanyName, tempDev.getName());
+            newDev.addLiteral(hasCompanyWebsite, tempDev.getWebsite());
+            newDev.addLiteral(hasDevelopedGamesTotal, tempDev.getTotalGamesDeveloped());
+        }
+    }
+
+    private static void createPublisher()
+    {
+        for(Publisher tempPub : ont.publishers)
+        {
+            Individual newPub = ont.ontologyModel.getIndividual(namespace + "U" + tempPub.getId());
+            if(newPub == null)
+            {
+                newPub = ont.ontologyModel.createIndividual(namespace + "U" + tempPub.getId(), publisher);
+                ont.pubMap.put(namespace + "U" + tempPub.getId(), newPub);
+            }
+
+            for(Game temp : tempPub.getGamesPublished())
+            {
+                String identifier = namespace + "G" + temp.getId();
+                Individual tempInd = ont.ontologyModel.getIndividual(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, game);
+
+                newPub.addProperty(hasPublished, tempInd);
+            }
+
+            newPub.addLiteral(hasCompanyCountry, tempPub.getCountry());
+            newPub.addLiteral(hasCompanyDescription, tempPub.getDescription());
+            newPub.addLiteral(hasCompanyID, tempPub.getId());
+            newPub.addLiteral(hasCompanyName, tempPub.getName());
+            newPub.addLiteral(hasCompanyWebsite, tempPub.getWebsite());
+            newPub.addLiteral(hasPublishedGamesTotal, tempPub.getTotalGamesPublished());
+        }
+    }
+
+    private static void createGame()
+    {
+        for(Game tempGame : ont.games)
+        {
+            Individual newGame = ont.ontologyModel.getIndividual(namespace + "G" + tempGame.getId());
+            if(newGame == null)
+                newGame = ont.ontologyModel.createIndividual(namespace + "G" + tempGame.getId(), game);
+
+            for(Developer temp : tempGame.getDevelopers())
+            {
+                String identifier = namespace + "D" + temp.getId();
+                Individual tempInd = ont.devMap.get(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, developer);
+                newGame.addProperty(isDevelopedBy, tempInd);
+            }
+
+            for(Franchise temp : tempGame.getFranchises())
+            {
+                String identifier = namespace + "F" + temp.getId();
+                Individual tempInd = ont.franMap.get(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, franchise);
+
+                newGame.addProperty(belongsToFranchise, tempInd);
+            }
+
+            for(Platform temp : tempGame.getPlatforms())
+            {
+                String identifier = namespace + "P" + temp.getId();
+                Individual tempInd = ont.platMap.get(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, platform);
+
+                newGame.addProperty(developedForPlatform, tempInd);
+            }
+
+            for(Publisher temp : tempGame.getPublishers())
+            {
+                String identifier = namespace + "U" + temp.getId();
+                Individual tempInd = ont.pubMap.get(identifier);
+
+                if( tempInd == null)
+                    tempInd = ont.ontologyModel.createIndividual(identifier, publisher);
+
+                newGame.addProperty(isPublishedBy, tempInd);
+            }
+
+            newGame.addLiteral(hasGameID, tempGame.getId());
+            newGame.addLiteral(hasGameName, tempGame.getName());
+            newGame.addLiteral(hasGameDescription, tempGame.getDescription());
+            newGame.addLiteral(hasGameImage, tempGame.getImage());
+            for(String tempGenre : tempGame.getGenres())
+                newGame.addLiteral(hasGameGenre, tempGenre);
+            for(String tempTheme : tempGame.getThemes())
+                newGame.addLiteral(hasGameTheme, tempTheme);
+        }
     }
 }
