@@ -3,6 +3,11 @@ package dataTypes;
 import com.yoshtec.owl.annotations.OwlClass;
 import com.yoshtec.owl.annotations.OwlDataProperty;
 import com.yoshtec.owl.annotations.OwlDataType;
+import com.yoshtec.owl.annotations.OwlObjectProperty;
+import com.yoshtec.owl.annotations.dprop.OwlDataPropertyDomain;
+import com.yoshtec.owl.annotations.dprop.OwlDataPropertyRange;
+import com.yoshtec.owl.annotations.dprop.OwlFunctionalDataProperty;
+import com.yoshtec.owl.annotations.oprop.*;
 
 import java.util.ArrayList;
 
@@ -10,33 +15,59 @@ import java.util.ArrayList;
 public class Game
 {
     @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameID")
-    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#int")
+    @OwlDataPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlDataPropertyRange(range = "http://www.w3.org/2001/XMLSchema#int")
+    @OwlFunctionalDataProperty
     private int id;
     @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameName")
-    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
+    @OwlDataPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlDataPropertyRange(range = "http://www.w3.org/2001/XMLSchema#string")
+    @OwlFunctionalDataProperty
     private String name;
     @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameDescription")
-    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
+    @OwlDataPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlDataPropertyRange(range = "http://www.w3.org/2001/XMLSchema#string")
+    @OwlFunctionalDataProperty
     private String description;
-    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#developedForPlatform")
+    @OwlObjectProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#developedForPlatform")
+    @OwlObjectPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlObjectPropertyRange(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Platform")
+    @OwlInverseObjectProperty(inverse="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameDevelopedFor")
+    @OwlIrreflexiveObjectProperty
     @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Platform")
     private ArrayList<Platform> platforms;
-    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#belongsToFranchise")
+    @OwlObjectProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#belongsToFranchise")
+    @OwlObjectPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlObjectPropertyRange(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Franchise")
+    @OwlInverseObjectProperty(inverse="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGame")
+    @OwlIrreflexiveObjectProperty
     @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Franchise")
     private ArrayList<Franchise> franchises;
     @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameImage")
-    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#anyURI")
+    @OwlDataPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlDataPropertyRange(range = "http://www.w3.org/2001/XMLSchema#anyURI")
+    @OwlFunctionalDataProperty
     private String image;
     @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameGenre")
-    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
+    @OwlDataPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlDataPropertyRange(range = "http://www.w3.org/2001/XMLSchema#string")
     private ArrayList<String> genres;
     @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameTheme")
-    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
+    @OwlDataPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlDataPropertyRange(range = "http://www.w3.org/2001/XMLSchema#string")
     private ArrayList<String> themes;
-    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#isDevelopedBy")
+    @OwlObjectProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#isDevelopedBy")
+    @OwlInverseObjectProperty(inverse="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasDeveloped")
+    @OwlObjectPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlObjectPropertyRange(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Developer")
+    @OwlFunctionalObjectProperty
     @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Developer")
     private ArrayList<Developer> developers;
-    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#isPublishedBy")
+    @OwlObjectProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#isPublishedBy")
+    @OwlInverseObjectProperty(inverse="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasPublished")
+    @OwlObjectPropertyDomain(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
+    @OwlObjectPropertyRange(domain = "http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Publisher")
+    @OwlFunctionalObjectProperty
     @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Publisher")
     private ArrayList<Publisher> publishers;
 

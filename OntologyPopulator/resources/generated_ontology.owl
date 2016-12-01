@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="resources/generated_ontology.owl#"
+     xml:base="resources/generated_ontology.owl"
+     xmlns:vg-ontology="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="resources/generated_ontology.owl">
+        <owl:imports rdf:resource="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasTest -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasTest"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasTest2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasTest2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverNumero -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverNumero"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverNumero2 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverNumero2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverString -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverString"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverString2 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverString2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverStrings -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#whateverStrings"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test"/>
+    
+
+
+    <!-- http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test2 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- #1440047379 -->
+
+    <owl:NamedIndividual rdf:about="#1440047379">
+        <rdf:type rdf:resource="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test2"/>
+        <vg-ontology:whateverNumero2 rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</vg-ontology:whateverNumero2>
+        <vg-ontology:whateverString2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wat</vg-ontology:whateverString2>
+        <vg-ontology:hasTest rdf:resource="#422250493"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- #1690254271 -->
+
+    <owl:NamedIndividual rdf:about="#1690254271">
+        <rdf:type rdf:resource="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test"/>
+        <vg-ontology:whateverStrings rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MERDA</vg-ontology:whateverStrings>
+        <vg-ontology:whateverStrings rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MERDA2</vg-ontology:whateverStrings>
+        <vg-ontology:whateverStrings rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MERDA3</vg-ontology:whateverStrings>
+        <vg-ontology:whateverNumero rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.putaquepariu.pt</vg-ontology:whateverNumero>
+        <vg-ontology:whateverString rdf:datatype="http://www.w3.org/2001/XMLSchema#string">irra</vg-ontology:whateverString>
+        <vg-ontology:hasTest2 rdf:resource="#1440047379"/>
+        <vg-ontology:hasTest2 rdf:resource="#221036634"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- #221036634 -->
+
+    <owl:NamedIndividual rdf:about="#221036634">
+        <rdf:type rdf:resource="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test2"/>
+        <vg-ontology:whateverNumero2 rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</vg-ontology:whateverNumero2>
+        <vg-ontology:whateverString2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">seis</vg-ontology:whateverString2>
+        <vg-ontology:hasTest rdf:resource="#1690254271"/>
+        <vg-ontology:hasTest rdf:resource="#422250493"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- #422250493 -->
+
+    <owl:NamedIndividual rdf:about="#422250493">
+        <rdf:type rdf:resource="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Test"/>
+        <vg-ontology:whateverStrings rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MERDA</vg-ontology:whateverStrings>
+        <vg-ontology:whateverStrings rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MERDA2</vg-ontology:whateverStrings>
+        <vg-ontology:whateverStrings rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MERDA3</vg-ontology:whateverStrings>
+        <vg-ontology:whateverString rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dois</vg-ontology:whateverString>
+        <vg-ontology:whateverNumero rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.putaquepariu.pt</vg-ontology:whateverNumero>
+        <vg-ontology:hasTest2 rdf:resource="#1440047379"/>
+        <vg-ontology:hasTest2 rdf:resource="#221036634"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
