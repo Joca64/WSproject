@@ -1,9 +1,13 @@
+import com.yoshtec.owl.marshall.Marshaller;
 import dataTypes.*;
 
 import org.apache.jena.ontology.OntModel;
+import org.apache.jena.query.Dataset;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.RDFReader;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.util.FileManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -17,8 +21,8 @@ import java.util.ArrayList;
 
 public class OntologyPopulator
 {
-    private OntModel ontologyModel;
-    private String namespace;
+    //private OntModel ontologyModel;
+    //private String namespace;
 
     ArrayList<Game> games;
     ArrayList<Franchise> franchises;
@@ -29,10 +33,10 @@ public class OntologyPopulator
 
 
     public OntologyPopulator(String filepath, String type){
-        ontologyModel = ModelFactory.createOntologyModel();
-        ontologyModel.read(filepath, type);
-        namespace = ontologyModel.getNsPrefixURI("");
-        System.out.println(namespace);
+        //ontologyModel = ModelFactory.createOntologyModel();
+        //ontologyModel.read(filepath, type);
+        //namespace = ontologyModel.getNsPrefixURI("");
+        //System.out.println(namespace);
 
         this.games = new ArrayList<Game>();
         this.franchises = new ArrayList<Franchise>();
@@ -462,6 +466,15 @@ public class OntologyPopulator
     }
 
     public static void main( String[] args ) {
-        OntologyPopulator ont = new OntologyPopulator("resources/ontology_games.owl", "RDF/XML");
+        //OntologyPopulator ont = new OntologyPopulator("resources/ontology_games.owl", "RDF/XML");
+
+        Marshaller marshaller = new Marshaller();
+
+        /*Dataset dataset = TDBFactory.createDataset("dataset1");
+        Model tdb = dataset.getDefaultModel();
+        FileManager.get().readModel(tdb, "resources/ontology_games.owl", "RDF/XML");
+        System.out.println(tdb.toString());
+        tdb.close();
+        dataset.close();*/
     }
 }
