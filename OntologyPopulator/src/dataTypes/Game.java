@@ -1,18 +1,43 @@
 package dataTypes;
 
+import com.yoshtec.owl.annotations.OwlClass;
+import com.yoshtec.owl.annotations.OwlDataProperty;
+import com.yoshtec.owl.annotations.OwlDataType;
+
 import java.util.ArrayList;
 
+@OwlClass(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Game")
 public class Game
 {
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameID")
+    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#int")
     private int id;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameName")
+    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
     private String name;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameDescription")
+    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
     private String description;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#developedForPlatform")
+    @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Platform")
     private ArrayList<Platform> platforms;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#belongsToFranchise")
+    @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Franchise")
     private ArrayList<Franchise> franchises;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameImage")
+    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#anyURI")
     private String image;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameGenre")
+    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
     private ArrayList<String> genres;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#hasGameTheme")
+    @OwlDataType(uri="http://www.w3.org/2001/XMLSchema#string")
     private ArrayList<String> themes;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#isDevelopedBy")
+    @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Developer")
     private ArrayList<Developer> developers;
+    @OwlDataProperty(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#isPublishedBy")
+    @OwlDataType(uri="http://www.semanticweb.org/joca/ontologies/2016/10/vg-ontology#Publisher")
     private ArrayList<Publisher> publishers;
 
     public Game(int id, String name, String description, String image)
