@@ -1,5 +1,3 @@
-import com.yoshtec.owl.marshall.MarshalException;
-import com.yoshtec.owl.marshall.Marshaller;
 import dataTypes.*;
 
 import org.apache.jena.ontology.OntModel;
@@ -13,7 +11,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.semanticweb.owlapi.model.IRI;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -479,27 +476,9 @@ public class OntologyPopulator
 
         Collection<Object> a = new ArrayList<Object>();
         a.add(ont.platforms);
-        /*TestDois dois = new TestDois(5, "seis");
-        TestDois bolas = new TestDois(10, "wat");
-        TestClass bosta = new TestClass("http://www.putaquepariu.pt", "dois", dois, bolas);
-        TestClass treta = new TestClass("http://www.putaquepariu.pt", "irra", bolas, dois);
-        dois.addBosta(bosta);
-        dois.addBosta(treta);
-        bolas.addBosta(bosta);
-        a.add(dois);
-        a.add(bosta);
-        a.add(treta);
-        a.add(bolas);*/
 
 
-        Marshaller marshaller = new Marshaller();
-        try
-        {
-            marshaller.marshal(a , IRI.create("resources/generated_ontology.owl"), IRI.create(new File("resources/generated_ontology.owl").toURI()));
-        } catch (MarshalException e)
-        {
-            e.printStackTrace();
-        }
+
 
         /*Game test = ont.games.get(0);
         System.out.println(test.toString());
