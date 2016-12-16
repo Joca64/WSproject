@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_testwebservices" default="compile.module.testwebservices">
+  <dirname property="module.testwebservices.basedir" file="${ant.file.module_testwebservices}"/>
+  
+  <property name="module.jdk.home.testwebservices" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.testwebservices" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.testwebservices" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.testwebservices" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="testwebservices.output.dir" value="${module.testwebservices.basedir}/out/production/TestWebservices"/>
+  <property name="testwebservices.testoutput.dir" value="${module.testwebservices.basedir}/out/test/TestWebservices"/>
+  
+  <path id="testwebservices.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="testwebservices.module.production.classpath">
+    <path refid="${module.jdk.classpath.testwebservices}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.glassfish_4.1.1.classpath"/>
+  </path>
+  
+  <path id="testwebservices.runtime.production.module.classpath">
+    <pathelement location="${testwebservices.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+  </path>
+  
+  <path id="testwebservices.module.classpath">
+    <path refid="${module.jdk.classpath.testwebservices}"/>
+    <pathelement location="${testwebservices.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.glassfish_4.1.1.classpath"/>
+  </path>
+  
+  <path id="testwebservices.runtime.module.classpath">
+    <pathelement location="${testwebservices.testoutput.dir}"/>
+    <pathelement location="${testwebservices.output.dir}"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.glassfish_4.1.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.testwebservices">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.testwebservices">
+    <patternset refid="excluded.from.module.testwebservices"/>
+  </patternset>
+  
+  <path id="testwebservices.module.sourcepath">
+    <dirset dir="${module.testwebservices.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.testwebservices" depends="compile.module.testwebservices.production,compile.module.testwebservices.tests" description="Compile module TestWebservices"/>
+  
+  <target name="compile.module.testwebservices.production" depends="register.custom.compilers" description="Compile module TestWebservices; production classes">
+    <mkdir dir="${testwebservices.output.dir}"/>
+    <javac2 destdir="${testwebservices.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.testwebservices}/javac">
+      <compilerarg line="${compiler.args.testwebservices}"/>
+      <bootclasspath refid="testwebservices.module.bootclasspath"/>
+      <classpath refid="testwebservices.module.production.classpath"/>
+      <src refid="testwebservices.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.testwebservices"/>
+    </javac2>
+    
+    <copy todir="${testwebservices.output.dir}">
+      <fileset dir="${module.testwebservices.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.testwebservices.tests" depends="register.custom.compilers,compile.module.testwebservices.production" description="compile module TestWebservices; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.testwebservices" description="cleanup module">
+    <delete dir="${testwebservices.output.dir}"/>
+    <delete dir="${testwebservices.testoutput.dir}"/>
+  </target>
+</project>

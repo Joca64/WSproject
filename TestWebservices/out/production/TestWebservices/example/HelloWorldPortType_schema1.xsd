@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://example/" xmlns:tns="http://example/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getGamesList" type="tns:getGamesList"/>
+
+  <xs:element name="getGamesListResponse" type="tns:getGamesListResponse"/>
+
+  <xs:element name="listClassByProperty" type="tns:listClassByProperty"/>
+
+  <xs:element name="listClassByPropertyResponse" type="tns:listClassByPropertyResponse"/>
+
+  <xs:element name="sayHelloWorldFrom" type="tns:sayHelloWorldFrom"/>
+
+  <xs:element name="sayHelloWorldFromNoob" type="tns:sayHelloWorldFromNoob"/>
+
+  <xs:element name="sayHelloWorldFromNoobResponse" type="tns:sayHelloWorldFromNoobResponse"/>
+
+  <xs:element name="sayHelloWorldFromResponse" type="tns:sayHelloWorldFromResponse"/>
+
+  <xs:complexType name="getGamesList">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getGamesListResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sayHelloWorldFrom">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sayHelloWorldFromResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listClassByProperty">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listClassByPropertyResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sayHelloWorldFromNoob">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="sayHelloWorldFromNoobResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
