@@ -1,5 +1,6 @@
 package dataTypes;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 public class Manufacturer extends Company
@@ -7,7 +8,7 @@ public class Manufacturer extends Company
     private ArrayList<Platform> manufacturedPlatforms;
     private int totalPlatformsManufactured;
 
-    public Manufacturer(int id, String name, String description, String website, String country)
+    public Manufacturer(int id, String name, String description, URI website, String country)
     {
         super(id, name, description, website, country);
         this.manufacturedPlatforms = new ArrayList<Platform>();

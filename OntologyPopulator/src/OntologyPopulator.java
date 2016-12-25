@@ -11,6 +11,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -164,7 +167,15 @@ public class OntologyPopulator
                     String g_name = (String) game.get("name");
                     //descricao do jogo
                     String g_description = (String) game.get("site_detail_url");
-                    g_temp = new Game(g_id, g_name, g_description, "");
+                    URI g_image = null;
+                    try{
+                        g_image = new URI(URLEncoder.encode("N/A", "UTF-8"));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    g_temp = new Game(g_id, g_name, g_description, g_image);
                     g_temp.addFranchise(f_temp);
                     new_games.add(g_temp);
                 }
@@ -215,7 +226,15 @@ public class OntologyPopulator
                     String g_name = (String) game.get("name");
                     //descricao do jogo
                     String g_description = (String) game.get("site_detail_url");
-                    g_temp = new Game(g_id, g_name, g_description, "");
+                    URI g_image = null;
+                    try{
+                        g_image = new URI(URLEncoder.encode("N/A", "UTF-8"));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    g_temp = new Game(g_id, g_name, g_description, g_image);
                     g_temp.addDeveloper(d_temp);
                     new_games.add(g_temp);
                 }
@@ -232,9 +251,21 @@ public class OntologyPopulator
             String country = (String) developer.get("location_country");
             if(country == null)
                 country = "N/A";
-            String website = (String) developer.get("website");
-            if(website==null)
-                website = "N/A";
+            String websitestring = (String) developer.get("website");
+            URI website = null;
+            try {
+                if(websitestring!=null) {
+                    URLEncoder.encode(websitestring, "UTF-8");
+                    website = new URI(websitestring);
+                }
+                else{
+                    website = new URI(URLEncoder.encode("N/A", "UTF-8"));
+                }
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             Developer new_developer = new Developer(id, name, description, website, country);
 
             developers.add(new_developer);
@@ -272,7 +303,15 @@ public class OntologyPopulator
                     String g_name = (String) game.get("name");
                     //descricao do jogo
                     String g_description = (String) game.get("site_detail_url");
-                    g_temp = new Game(g_id, g_name, g_description, "");
+                    URI g_image = null;
+                    try{
+                        g_image = new URI(URLEncoder.encode("N/A", "UTF-8"));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    g_temp = new Game(g_id, g_name, g_description, g_image);
                     g_temp.addPublisher(p_temp);
                     new_games.add(g_temp);
                 }
@@ -289,9 +328,21 @@ public class OntologyPopulator
             String country = (String) publisher.get("location_country");
             if(country == null)
                 country = "N/A";
-            String website = (String) publisher.get("website");
-            if(website==null)
-                website = "N/A";
+            String websitestring = (String) publisher.get("website");
+            URI website = null;
+            try {
+                if(websitestring!=null) {
+                    URLEncoder.encode(websitestring, "UTF-8");
+                    website = new URI(websitestring);
+                }
+                else{
+                    website = new URI(URLEncoder.encode("N/A", "UTF-8"));
+                }
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             Publisher new_publisher = new Publisher(id, name, description, website, country);
             publishers.add(new_publisher);
         }
@@ -331,7 +382,15 @@ public class OntologyPopulator
                 if(m_temp==null){
                     String m_name = (String) manufacturer.get("name");
                     String m_description = (String) manufacturer.get("api_detail_url");
-                    m_temp = new Manufacturer(m_id, m_name, m_description, "N/A", "N/A");
+                    URI website = null;
+                    try {
+                        website = new URI(URLEncoder.encode("N/A", "UTF-8"));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    m_temp = new Manufacturer(m_id, m_name, m_description, website, "N/A");
                     manufacturers.add(m_temp);
                 }
                 Platform new_platform = new Platform(id, name, description, m_temp);
@@ -364,7 +423,21 @@ public class OntologyPopulator
         int id = Integer.parseInt(String.valueOf(game.get("id")));
         String name = (String) game.get("name");
         JSONObject game_images = (JSONObject) game.get("image");
-        String image = (String) game_images.get("medium_url");
+        String imagestring = (String) game_images.get("medium_url");
+        URI image = null;
+        try {
+            if(imagestring==null) {
+                image = new URI(URLEncoder.encode("N/A", "UTF-8"));
+            }
+            else{
+                URLEncoder.encode(imagestring, "UTF-8");
+                image = new URI(URLEncoder.encode(imagestring, "UTF-8"));
+            }
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         String description = (String) game.get("deck");
 
         //Supondo que franchises já está populada (ainda sem a lista de games nas franchises)

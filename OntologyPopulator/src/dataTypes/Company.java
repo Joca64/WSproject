@@ -1,14 +1,16 @@
 package dataTypes;
 
+import java.net.URI;
+
 public class Company
 {
     private int id;
     private String name;
     private String description;
-    private String website;
+    private URI website;
     private String country;
 
-    public Company(int id, String name, String description, String website, String country)
+    public Company(int id, String name, String description, URI website, String country)
     {
         this.id = id;
         this.name = name;
@@ -29,9 +31,9 @@ public class Company
 
     public void setDescription(String description) { this.description = description; }
 
-    public String getWebsite() { return website; }
+    public URI getWebsite() { return website; }
 
-    public void setWebsite(String website) { this.website = website; }
+    public void setWebsite(URI website) { this.website = website; }
 
     public String getCountry() { return country; }
 

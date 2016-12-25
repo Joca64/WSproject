@@ -1,5 +1,6 @@
 package dataTypes;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 public class Game
@@ -9,13 +10,13 @@ public class Game
     private String description;
     private ArrayList<Platform> platforms;
     private ArrayList<Franchise> franchises;
-    private String image;
+    private URI image;
     private ArrayList<String> genres;
     private ArrayList<String> themes;
     private ArrayList<Developer> developers;
     private ArrayList<Publisher> publishers;
 
-    public Game(int id, String name, String description, String image)
+    public Game(int id, String name, String description, URI image)
     {
         this.id = id;
         this.name = name;
@@ -29,7 +30,7 @@ public class Game
         this.themes = new ArrayList<String>();
     }
 
-    public Game(int id, String name, String description, String image, ArrayList<Platform> platforms, ArrayList<Publisher> publishers,
+    public Game(int id, String name, String description, URI image, ArrayList<Platform> platforms, ArrayList<Publisher> publishers,
                 ArrayList<Developer> developers, ArrayList<Franchise> franchises, ArrayList<String> genres, ArrayList<String> themes)
     {
         this.id = id;
@@ -68,9 +69,9 @@ public class Game
 
     public void addFranchise(Franchise franchise) { this.franchises.add(franchise); }
 
-    public String getImage() { return image; }
+    public URI getImage() { return image; }
 
-    public void setImage(String image) { this.image = image; }
+    public void setImage(URI image) { this.image = image; }
 
     public ArrayList<String> getGenres() { return this.genres; }
 

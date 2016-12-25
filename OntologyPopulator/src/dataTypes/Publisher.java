@@ -1,5 +1,6 @@
 package dataTypes;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 public class Publisher extends Company
@@ -7,7 +8,7 @@ public class Publisher extends Company
     private ArrayList<Game> gamesPublished;
     private int totalGamesPublished;
 
-    public Publisher(int id, String name, String description, String website, String country)
+    public Publisher(int id, String name, String description, URI website, String country)
     {
         super(id, name, description, website, country);
         this.gamesPublished = new ArrayList<Game>();

@@ -12,23 +12,27 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <title>Jogos</title>
 </head>
 <body>
 
-<li>
+<ul class="list-group">
 <%
     int counter = 0;
     for(String jogo: jogos.getGames()){
         counter++;
 %>
-
-    <%= counter%>:<%= jogo%>,
-
+<li class="list-group-item">
+    <span class="badge"><%= counter%></span>
+    <%= jogo%>
+</li>
 <%
     }
 %>
-</li>
+</ul>
 
 </body>
 </html>

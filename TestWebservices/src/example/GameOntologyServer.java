@@ -1,13 +1,18 @@
 package example;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.reasoner.Reasoner;
+import org.apache.jena.reasoner.ReasonerRegistry;
+import org.apache.jena.reasoner.ValidityReport;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by itspm on 15/12/2016.
@@ -173,6 +178,18 @@ public class GameOntologyServer {
     ontologyModel = ModelFactory.createOntologyModel();
     ontologyModel.read("resources/ontology_generated.owl", "RDF/XML");
     model = ontologyModel.getBaseModel();
+
+    Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
+    InfModel inf = ModelFactory.createInfModel(reasoner, model);
+    ValidityReport validity = inf.validate();
+    if (validity.isValid()) {
+      System.out.println("OK");
+    } else {
+      System.out.println("Conflicts");
+      for (Iterator i = validity.getReports(); i.hasNext(); ) {
+        System.out.println(" - " + i.next());
+      }
+    }
   }
 
 }
