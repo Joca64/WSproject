@@ -13,6 +13,15 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="sayHelloWorldFromNoob">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="sayHelloWorldFrom">
       <soap:operation soapAction=""/>
       <input>
@@ -31,19 +40,10 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="sayHelloWorldFromNoob">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
   </binding>
   <service name="GameOntologyServer">
     <port name="GameOntologyServer" binding="tns:GameOntologyServerBinding">
-      <soap:address location="http://localhost:8080//services/example/GameOntologyServer"/>
+      <soap:address location="http://localhost:9000//services/example/GameOntologyServer"/>
     </port>
   </service>
 </definitions>

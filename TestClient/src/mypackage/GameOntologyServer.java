@@ -27,15 +27,21 @@ public interface GameOntologyServer {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
      * @return
-     *     returns java.lang.String
+     *     returns java.util.List<java.lang.String>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sayHelloWorldFromNoob", targetNamespace = "http://example/", className = "mypackage.SayHelloWorldFromNoob")
-    @ResponseWrapper(localName = "sayHelloWorldFromNoobResponse", targetNamespace = "http://example/", className = "mypackage.SayHelloWorldFromNoobResponse")
-    @Action(input = "http://example/GameOntologyServer/sayHelloWorldFromNoobRequest", output = "http://example/GameOntologyServer/sayHelloWorldFromNoobResponse")
-    public String sayHelloWorldFromNoob();
+    @RequestWrapper(localName = "getGameInfo", targetNamespace = "http://example/", className = "mypackage.GetGameInfo")
+    @ResponseWrapper(localName = "getGameInfoResponse", targetNamespace = "http://example/", className = "mypackage.GetGameInfoResponse")
+    @Action(input = "http://example/GameOntologyServer/getGameInfoRequest", output = "http://example/GameOntologyServer/getGameInfoResponse")
+    public List<String> getGameInfo(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        boolean arg1);
 
     /**
      * 
@@ -54,7 +60,9 @@ public interface GameOntologyServer {
 
     /**
      * 
+     * @param arg3
      * @param arg2
+     * @param arg4
      * @param arg1
      * @param arg0
      * @return
@@ -71,24 +79,22 @@ public interface GameOntologyServer {
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
-        boolean arg2);
+        boolean arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        int arg4);
 
     /**
      * 
-     * @param arg1
-     * @param arg0
      * @return
-     *     returns java.util.List<java.lang.String>
+     *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getGameInfo", targetNamespace = "http://example/", className = "mypackage.GetGameInfo")
-    @ResponseWrapper(localName = "getGameInfoResponse", targetNamespace = "http://example/", className = "mypackage.GetGameInfoResponse")
-    @Action(input = "http://example/GameOntologyServer/getGameInfoRequest", output = "http://example/GameOntologyServer/getGameInfoResponse")
-    public List<String> getGameInfo(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        boolean arg1);
+    @RequestWrapper(localName = "sayHelloWorldFromNoob", targetNamespace = "http://example/", className = "mypackage.SayHelloWorldFromNoob")
+    @ResponseWrapper(localName = "sayHelloWorldFromNoobResponse", targetNamespace = "http://example/", className = "mypackage.SayHelloWorldFromNoobResponse")
+    @Action(input = "http://example/GameOntologyServer/sayHelloWorldFromNoobRequest", output = "http://example/GameOntologyServer/sayHelloWorldFromNoobResponse")
+    public String sayHelloWorldFromNoob();
 
 }

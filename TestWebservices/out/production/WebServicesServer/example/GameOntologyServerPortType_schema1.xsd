@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://example/" xmlns:tns="http://example/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="getGamesList" type="tns:getGamesList"/>
+  <xs:element name="getGameInfo" type="tns:getGameInfo"/>
 
-  <xs:element name="getGamesListResponse" type="tns:getGamesListResponse"/>
+  <xs:element name="getGameInfoResponse" type="tns:getGameInfoResponse"/>
 
   <xs:element name="listClassByProperty" type="tns:listClassByProperty"/>
 
@@ -32,6 +32,8 @@
       <xs:element name="arg0" type="xs:string" minOccurs="0"/>
       <xs:element name="arg1" type="xs:string" minOccurs="0"/>
       <xs:element name="arg2" type="xs:boolean"/>
+      <xs:element name="arg3" type="xs:int"/>
+      <xs:element name="arg4" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -53,13 +55,16 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="getGamesList">
-    <xs:sequence/>
+  <xs:complexType name="getGameInfo">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:boolean"/>
+    </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="getGamesListResponse">
+  <xs:complexType name="getGameInfoResponse">
     <xs:sequence>
-      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

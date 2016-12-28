@@ -6,23 +6,23 @@
       <xsd:import namespace="http://example/" schemaLocation="GameOntologyServerPortType_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="getGamesList">
-    <part name="parameters" element="tns:getGamesList"/>
+  <message name="getGameInfo">
+    <part name="parameters" element="tns:getGameInfo"/>
   </message>
-  <message name="getGamesListResponse">
-    <part name="parameters" element="tns:getGamesListResponse"/>
-  </message>
-  <message name="listClassByProperty">
-    <part name="parameters" element="tns:listClassByProperty"/>
-  </message>
-  <message name="listClassByPropertyResponse">
-    <part name="parameters" element="tns:listClassByPropertyResponse"/>
+  <message name="getGameInfoResponse">
+    <part name="parameters" element="tns:getGameInfoResponse"/>
   </message>
   <message name="sayHelloWorldFrom">
     <part name="parameters" element="tns:sayHelloWorldFrom"/>
   </message>
   <message name="sayHelloWorldFromResponse">
     <part name="parameters" element="tns:sayHelloWorldFromResponse"/>
+  </message>
+  <message name="listClassByProperty">
+    <part name="parameters" element="tns:listClassByProperty"/>
+  </message>
+  <message name="listClassByPropertyResponse">
+    <part name="parameters" element="tns:listClassByPropertyResponse"/>
   </message>
   <message name="sayHelloWorldFromNoob">
     <part name="parameters" element="tns:sayHelloWorldFromNoob"/>
@@ -31,17 +31,17 @@
     <part name="parameters" element="tns:sayHelloWorldFromNoobResponse"/>
   </message>
   <portType name="GameOntologyServer">
-    <operation name="getGamesList">
-      <input ns1:Action="http://example/GameOntologyServer/getGamesListRequest" message="tns:getGamesList" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns2:Action="http://example/GameOntologyServer/getGamesListResponse" message="tns:getGamesListResponse" xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata"/>
-    </operation>
-    <operation name="listClassByProperty">
-      <input ns3:Action="http://example/GameOntologyServer/listClassByPropertyRequest" message="tns:listClassByProperty" xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns4:Action="http://example/GameOntologyServer/listClassByPropertyResponse" message="tns:listClassByPropertyResponse" xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata"/>
+    <operation name="getGameInfo">
+      <input ns1:Action="http://example/GameOntologyServer/getGameInfoRequest" message="tns:getGameInfo" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns2:Action="http://example/GameOntologyServer/getGameInfoResponse" message="tns:getGameInfoResponse" xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="sayHelloWorldFrom">
-      <input ns5:Action="http://example/GameOntologyServer/sayHelloWorldFromRequest" message="tns:sayHelloWorldFrom" xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns6:Action="http://example/GameOntologyServer/sayHelloWorldFromResponse" message="tns:sayHelloWorldFromResponse" xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns3:Action="http://example/GameOntologyServer/sayHelloWorldFromRequest" message="tns:sayHelloWorldFrom" xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns4:Action="http://example/GameOntologyServer/sayHelloWorldFromResponse" message="tns:sayHelloWorldFromResponse" xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata"/>
+    </operation>
+    <operation name="listClassByProperty">
+      <input ns5:Action="http://example/GameOntologyServer/listClassByPropertyRequest" message="tns:listClassByProperty" xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns6:Action="http://example/GameOntologyServer/listClassByPropertyResponse" message="tns:listClassByPropertyResponse" xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="sayHelloWorldFromNoob">
       <input ns7:Action="http://example/GameOntologyServer/sayHelloWorldFromNoobRequest" message="tns:sayHelloWorldFromNoob" xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata"/>

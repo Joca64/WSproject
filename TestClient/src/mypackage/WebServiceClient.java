@@ -25,10 +25,10 @@ public class WebServiceClient {
         System.out.println(new GameOntologyServerService().getPort(GameOntologyServer.class).sayHelloWorldFrom("casa do caralho"));
     }
 
-    public ArrayList<String> getGames(){
+    public ArrayList<String> getGames(int limit, int page){
         System.out.println("Vou buscar os resultados ao webserver.");
         ArrayList<String> results;
-        results = (ArrayList<String>) new GameOntologyServerService().getPort(GameOntologyServer.class).listClassByProperty("Game" , "hasGameName", true);
+        results = (ArrayList<String>) new GameOntologyServerService().getPort(GameOntologyServer.class).listClassByProperty("Game" , "hasGameName", true, limit, page);
         System.out.println("Já os tenho");
         return results;
     }

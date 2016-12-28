@@ -11,6 +11,7 @@ import org.apache.jena.reasoner.ValidityReport;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -46,7 +47,7 @@ public class GameOntologyServer {
   }
 
   @WebMethod
-  public ArrayList<String> listClassByProperty(String className, String property, boolean asc)
+  public ArrayList<String> listClassByProperty(String className, String property, boolean asc, int limit, int page)
   {
     ArrayList<String> results = new ArrayList<String>();
     String sparqlQuery;
@@ -63,6 +64,11 @@ public class GameOntologyServer {
       sparqlQuery = sparqlQuery + "\tORDER BY ASC(?name)\n";
     else
       sparqlQuery = sparqlQuery + "\tORDER BY DESC(?name)\n";
+
+    if(limit!=0){
+      sparqlQuery = sparqlQuery + "\tOFFSET " + (page*limit) + "\n";
+      sparqlQuery = sparqlQuery + "\tLIMIT " + limit;
+    }
 
     Query query = QueryFactory.create(sparqlQuery);
     QueryExecution qe = QueryExecutionFactory.create(query, model);
@@ -111,7 +117,7 @@ public class GameOntologyServer {
             "\t\tOPTIONAL { ?Game games:hasGameTheme ?theme } .\n" +
             "\t\tOPTIONAL { ?Game games:isDevelopedBy ?developer } .\n" +
             "\t\tOPTIONAL { ?Game games:isPublishedBy ?publisher } .\n" +
-            "\t\tOPTIONAL { ?Game games:developedForPlatform ?platform }.\n" +
+            "\t\tOPTIONAL { ?Game games:developedForPlatform ?platform } .\n" +
             "\t\tOPTIONAL { ?Game games:belongsToFranchise ?franchise } .\n" +
             "\t}"
     ;
@@ -119,19 +125,41 @@ public class GameOntologyServer {
     Query query = QueryFactory.create(sparqlQuery);
     QueryExecution qe = QueryExecutionFactory.create(query, model);
     ResultSet answer = qe.execSelect();
+    System.out.println(answer.toString());
 
+    System.out.println("comecei");
+    int iter=0;
     while (answer.hasNext()) {
+      iter++;
+      System.out.println(iter);
       QuerySolution qs = answer.nextSolution();
       if(isID)
         results[0] = (qs.get("?name").toString());
-      else
-        results[0] = (qs.get("?id").toString());
+      else {
+        String[] parts = (qs.get("?id").toString()).split("\\^\\^");
+        results[0] = parts[0];
+      }
+      System.out.println(results[0]);
       results[1] = (qs.get("?description").toString());
-      results[2] = (qs.get("?image").toString());
+      String[] parts = (qs.get("?image").toString()).split("\\^\\^");
+      try {
+        results[2] = java.net.URLDecoder.decode(parts[0],"UTF-8");
+      } catch (UnsupportedEncodingException e) {
+        e.printStackTrace();
+      }
+
       if(qs.get("?genre") == null)
         results[3] = ("N/A");
-      else
-        results[3] = (qs.get("?genre").toString());
+      else {
+        System.out.println("--------");
+        System.out.println(qs.get("?genre"));
+        String temp = qs.get("?genre").toString();
+        System.out.println(temp);
+        temp.replace("\n",",");
+        System.out.println(temp);
+        System.out.println("--over--");
+        results[3] = temp;
+      }
 
       if(qs.get("?theme") == null)
         results[4] = ("N/A");
@@ -158,7 +186,7 @@ public class GameOntologyServer {
       else
         results[8] = (qs.get("?franchise").toString());
     }
-
+    System.out.println("acabei");
     qe.close();
 
     return results;
