@@ -163,7 +163,7 @@ public class OntologyPopulator
                 final int g_id = Integer.parseInt(String.valueOf(game.get("id")));
                 Game g_temp = findGameID(g_id);
                 //caso o jogo nao exista em games
-                if(g_temp==null){
+                /*if(g_temp==null){
                     String g_name = (String) game.get("name");
                     //descricao do jogo
                     String g_description = (String) game.get("site_detail_url");
@@ -178,8 +178,8 @@ public class OntologyPopulator
                     g_temp = new Game(g_id, g_name, g_description, g_image);
                     g_temp.addFranchise(f_temp);
                     new_games.add(g_temp);
-                }
-                f_temp.addGame(g_temp);
+                }*/
+                if(g_temp!=null)    f_temp.addGame(g_temp);
             }
             //adicionar jogos novos a games
             for(Game ng: new_games){
@@ -222,7 +222,7 @@ public class OntologyPopulator
                 final int g_id = Integer.parseInt(String.valueOf(game.get("id")));
                 Game g_temp = findGameID(g_id);
                 //caso o jogo nao exista em games
-                if(g_temp==null){
+                /*if(g_temp==null){
                     String g_name = (String) game.get("name");
                     //descricao do jogo
                     String g_description = (String) game.get("site_detail_url");
@@ -237,8 +237,8 @@ public class OntologyPopulator
                     g_temp = new Game(g_id, g_name, g_description, g_image);
                     g_temp.addDeveloper(d_temp);
                     new_games.add(g_temp);
-                }
-                d_temp.addGameDeveloped(g_temp);
+                }*/
+                if (g_temp!=null) d_temp.addGameDeveloped(g_temp);
             }
             for(Game ng: new_games){
                 this.games.add(ng);
@@ -299,7 +299,7 @@ public class OntologyPopulator
                 final int g_id = Integer.parseInt(String.valueOf(game.get("id")));
                 Game g_temp = findGameID(g_id);
                 //caso o jogo nao exista em games
-                if(g_temp==null){
+                /*if(g_temp==null){
                     String g_name = (String) game.get("name");
                     //descricao do jogo
                     String g_description = (String) game.get("site_detail_url");
@@ -314,8 +314,8 @@ public class OntologyPopulator
                     g_temp = new Game(g_id, g_name, g_description, g_image);
                     g_temp.addPublisher(p_temp);
                     new_games.add(g_temp);
-                }
-                p_temp.addGamePublished(g_temp);
+                }*/
+                if(g_temp!=null)    p_temp.addGamePublished(g_temp);
             }
             for(Game ng: new_games){
                 this.games.add(ng);
@@ -654,7 +654,7 @@ public class OntologyPopulator
 
         OutputStream out;
         try {
-            out = new FileOutputStream("resources/ontology_generated.owl");
+            out = new FileOutputStream("resources/ontology_generated_min.owl");
             ont.ontologyModel.write(out, "RDF/XML");
 
             ont.ontologyModel.close();
@@ -799,7 +799,6 @@ public class OntologyPopulator
                 newPub = ont.ontologyModel.createIndividual(namespace + "U" + tempPub.getId(), publisher);
                 ont.pubMap.put(namespace + "U" + tempPub.getId(), newPub);
             }
-
             for(Game temp : tempPub.getGamesPublished())
             {
                 String identifier = namespace + "G" + temp.getId();

@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://example/" xmlns:tns="http://example/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+  <xs:element name="getCompanyInfo" type="tns:getCompanyInfo"/>
+
+  <xs:element name="getCompanyInfoResponse" type="tns:getCompanyInfoResponse"/>
+
   <xs:element name="getGameInfo" type="tns:getGameInfo"/>
 
   <xs:element name="getGameInfoResponse" type="tns:getGameInfoResponse"/>
 
+  <xs:element name="getGamesFromFranchise" type="tns:getGamesFromFranchise"/>
+
+  <xs:element name="getGamesFromFranchiseResponse" type="tns:getGamesFromFranchiseResponse"/>
+
+  <xs:element name="getGamesFromPlatform" type="tns:getGamesFromPlatform"/>
+
+  <xs:element name="getGamesFromPlatformResponse" type="tns:getGamesFromPlatformResponse"/>
+
   <xs:element name="listClassByProperty" type="tns:listClassByProperty"/>
 
   <xs:element name="listClassByPropertyResponse" type="tns:listClassByPropertyResponse"/>
+
+  <xs:element name="listGamesByType" type="tns:listGamesByType"/>
+
+  <xs:element name="listGamesByTypeResponse" type="tns:listGamesByTypeResponse"/>
 
   <xs:element name="sayHelloWorldFrom" type="tns:sayHelloWorldFrom"/>
 
@@ -55,6 +71,33 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="listGamesByType">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listGamesByTypeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCompanyInfo">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:boolean"/>
+      <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCompanyInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="getGameInfo">
     <xs:sequence>
       <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -65,6 +108,30 @@
   <xs:complexType name="getGameInfoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getGamesFromFranchise">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getGamesFromFranchiseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getGamesFromPlatform">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getGamesFromPlatformResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

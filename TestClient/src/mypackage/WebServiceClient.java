@@ -26,7 +26,7 @@ public class WebServiceClient {
     }
 
     public ArrayList<String> getGames(int limit, int page){
-        System.out.println("Vou buscar os resultados ao webserver.");
+        System.out.println("Vou buscar os resultados de jogos ao webserver.");
         ArrayList<String> results;
         results = (ArrayList<String>) new GameOntologyServerService().getPort(GameOntologyServer.class).listClassByProperty("Game" , "hasGameName", true, limit, page);
         System.out.println("Já os tenho");
@@ -34,11 +34,19 @@ public class WebServiceClient {
     }
 
     public List<String> getGame(String gameid, boolean isID){
-        System.out.println("Vou buscar os resultados ao webserver.");
+        System.out.println("Vou buscar os resultados de jogo ao webserver.");
         List<String> results;
         results =  new GameOntologyServerService().getPort(GameOntologyServer.class).getGameInfo(gameid, isID);
         System.out.println("Já os tenho");
+        System.out.println(results);
         return results;
     }
 
+    public List<String> getCompany(String companyid, boolean isID, String type){
+        System.out.println("Vou buscar os resultados de company ao webserver.");
+        List<String> results;
+        results =  new GameOntologyServerService().getPort(GameOntologyServer.class).getCompanyInfo(companyid, isID, type);
+        System.out.println("Já os tenho");
+        return results;
+    }
 }

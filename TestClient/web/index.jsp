@@ -19,57 +19,62 @@
 </head>
 
 <body>
-<center><div class="page-header"><h1>Game Ontology<small> - Discover new games</small></h1></div></center>
-<div class="row">
-    <div class="panel panel-default col-xs-12 col-md-8">
-        <div class="panel-heading">
-            <h3 class="panel-title">Search</h3>
-        </div>
-        <div class="panel-body">
-            <!--<div class="view-container">
-                <form action="/game.jsp" method="get">
-                    Game id: <input type="text" name="id">
-                    Game name: <input type="text" name="name">
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>-->
+<div class="container-fluid">
+    <center><div class="page-header"><h1>Game Ontology<small> - Discover new games</small></h1></div></center>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="panel panel-default col-md-6">
+            <div class="panel-heading">
+                <h3 class="panel-title">Search</h3>
+            </div>
+            <div class="panel-body">
+                <!--<div class="view-container">
+                    <form action="/game.jsp" method="get">
+                        Game id: <input type="text" name="id">
+                        Game name: <input type="text" name="name">
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>-->
 
-            <div class="row">
-                <div class="input-group form-horizontal">
-                    <input type="text" class="form-control" placeholder="What to search..." id="inputValue">
-                    <span>Search for </span>
-                    <select class="btn" id="select1">
-                        <option value="game" selected>Game</option>
-                        <option value="developer">Developer</option>
-                        <option value="publisher">Publisher</option>
-                        <option value="franchise">Franchise</option>
-                    </select>
-                    <span> by </span>
-                    <select class="btn" id="select2">
-                        <option value="id" selected>ID</option>
-                        <option value="name">Name</option>
-                    </select>
-                    <button class="btn btn-default" type="button" onclick="searchButton()">Search</button>
-                </div><!-- /input-group -->
+                <div class="row">
+                    <div class="input-group form-horizontal">
+                        <input type="text" class="form-control" placeholder="What to search..." id="inputValue">
+                        <span>Search for </span>
+                        <select class="btn" id="select1">
+                            <option value="game" selected>Game</option>
+                            <option value="developer">Developer</option>
+                            <option value="publisher">Publisher</option>
+                            <option value="franchise">Franchise</option>
+                        </select>
+                        <span> by </span>
+                        <select class="btn" id="select2">
+                            <option value="id" selected>ID</option>
+                            <option value="name">Name</option>
+                        </select>
+                        <button class="btn btn-default" type="button" onclick="searchButton()">Search</button>
+                    </div><!-- /input-group -->
+                </div>
             </div>
         </div>
-    </div>
-    <div class="panel panel-default col-xs-6 col-md-4">
-        <div class="panel-heading">
-            <h3 class="panel-title">Others</h3>
-        </div>
-        <div class="panel-body">
-            <div class="view-container">
-                <a href="games.jsp">Listar jogos</a>
+        <div class="panel panel-default col-xs-6 col-md-4">
+            <div class="panel-heading">
+                <h3 class="panel-title">Others</h3>
+            </div>
+            <div class="panel-body">
+                <div class="view-container">
+                    <a href="games.jsp">Listar jogos</a>
+                </div>
             </div>
         </div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 
 <div class="row">
-    <div class="panel panel-default">
+    <div class="col-md-1"></div>
+    <div class="panel panel-default col-md-10 container-fluid">
         <div class="panel-heading">
-            <center><h3 class="panel-title">Games with most rating</h3></center>
+            <center><h3 class="panel-title">Featured games (with most rating):</h3></center>
         </div>
         <div class="panel-body">
             <%
@@ -79,17 +84,29 @@
             <div class="col-sm-6 col-md-2">
                 <%
                     List<String> topGameInfo = cliente.getGame(topGamesID, true);
+                    String[] genres = topGameInfo.get(4).split("\\+");
+                    String[] themes = topGameInfo.get(5).split("\\+");
                 %>
                 <div class="thumbnail">
-                    <img src="<%=topGameInfo.get(2)%>" width="200">
+                    <img src="<%=topGameInfo.get(3)%>" width="200">
                     <div class="caption">
                         <center>
                             <h3><%=topGameInfo.get(0)%>
                             </h3>
-                            <p><%=topGameInfo.get(1)%>
-                            </p>
-                            <p><span class="label label-default"><%=topGameInfo.get(3)%></span><span
-                                    class="label label-default"><%=topGameInfo.get(4)%></span></p>
+                            <p><%=topGameInfo.get(2)%>
+                            </p
+                            <%
+                                for(String genre : genres) {
+                            %>
+                            <p><span class="label label-success"><%= genre %></span></p>
+                            <%
+                                }
+                                for(String theme : themes){
+                            %>
+                            <p><span class="label label-warning"><%= theme %></span></p>
+                            <%
+                                }
+                            %>
                             <p><a href="/game.jsp?id=<%=topGamesID%>" class="btn btn-primary" role="button">More
                                 info</a></p>
                         </center>
@@ -101,6 +118,7 @@
             %>
         </div>
     </div>
+    <div class="col-md-1"></div>
 </div>
 
 </body>
