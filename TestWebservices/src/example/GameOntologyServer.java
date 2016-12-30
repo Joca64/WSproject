@@ -4,6 +4,7 @@ import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
 import org.apache.jena.reasoner.ValidityReport;
@@ -47,6 +48,150 @@ public class GameOntologyServer {
   }
 
   @WebMethod
+  public String[] getCompanyInfo(String company, boolean isID, String type)
+  {
+    String[] results = new String[6];
+    String sparqlQuery;
+
+    sparqlQuery = sparqlPrefix +
+            "SELECT ?name ?id ?description ?country ?website (group_concat( distinct ?game;separator=\"+\") as ?games)\n" +
+            "\tWHERE {\n" +
+            "\t\t?Company a games:"+ type +" .\n";
+
+    if(isID){
+      sparqlQuery = sparqlQuery +
+              "\t\t?Company games:hasCompanyID "+ company +" .\n" +
+              "\t\t?Company games:hasCompanyName ?name .\n";
+    }else{
+      sparqlQuery = sparqlQuery +
+              "\t\t?Company games:hasCompanyName \""+ company +"\" .\n" +
+              "\t\t?Company games:hasCompanyID ?id .\n";
+    }
+
+    sparqlQuery = sparqlQuery +
+            "\t\t?Company games:hasCompanyDescription ?description .\n" +
+            "\t\t?Company games:hasCompanyCountry ?country .\n" +
+            "\t\t?Company games:hasCompanyWebsite ?website .\n";
+
+    if(type.equals("Publisher")){
+      sparqlQuery = sparqlQuery +
+              "\t\t?Company games:hasPublished ?gameURI .\n";
+    }else{
+      sparqlQuery = sparqlQuery +
+              "\t\t?Company games:hasDeveloped ?gameURI .\n";
+    }
+
+    sparqlQuery = sparqlQuery +
+            "\t\t?gameURI games:hasGameName ?game .\n" +
+            "\t}" +
+            "GROUP BY ?name ?id ?description ?country ?website";
+
+    try{
+      Query query = QueryFactory.create(sparqlQuery);
+      QueryExecution qe = QueryExecutionFactory.create(query, model);
+      ResultSet answer = qe.execSelect();
+
+      while (answer.hasNext()) {
+        QuerySolution qs = answer.nextSolution();
+        System.out.println("Result: " + qs.toString());
+
+        if(isID){
+          results[0] = (qs.get("?name").toString());
+          results[1] = company;
+        }
+        else{
+          results[0] = company;
+          String[] parts = (qs.get("?id").toString()).split("\\^\\^");
+          results[1] = parts[0];
+        }
+
+        results[2] = (qs.get("?description").toString());
+
+        results[3] = (qs.get("?country").toString());
+
+        String[] parts = (qs.get("?website").toString()).split("\\^\\^");
+        try {
+          results[4] = java.net.URLDecoder.decode(parts[0],"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+          e.printStackTrace();
+        }
+
+        if(qs.get("?games") == null)
+          results[5] = ("N/A");
+        else
+          results[5] = qs.get("?games").toString();
+      }
+
+      qe.close();
+    }catch (Exception e){
+      System.out.println(e);
+      return null;
+    }
+
+    return results;
+  }
+
+  @WebMethod
+  public ArrayList<String> getGamesFromPlatform(String platform)
+  {
+    ArrayList<String> results = new ArrayList<String>();
+    String sparqlQuery;
+
+    sparqlQuery = sparqlPrefix +
+            "SELECT ?Game\n" +
+            "\tWHERE {\n" +
+            "\t\t?Platform a games:Platform .\n" +
+            "\t\t?Platform games:hasPlatformID "+platform+" .\n" +
+            "\t\t?Game games:developedForPlatform ?Platform .\n" +
+            "\t}"
+    ;
+
+    Query query = QueryFactory.create(sparqlQuery);
+    QueryExecution qe = QueryExecutionFactory.create(query, model);
+    ResultSet answer = qe.execSelect();
+
+    while (answer.hasNext()) {
+      QuerySolution qs = answer.nextSolution();
+      RDFNode temp = qs.get("Game");
+      results.add(temp.asNode().getLocalName());
+    }
+
+    qe.close();
+
+    return results;
+  }
+
+  @WebMethod
+  public ArrayList<String> getGamesFromFranchise(String franchise)
+  {
+    ArrayList<String> results = new ArrayList<String>();
+    String sparqlQuery;
+
+    sparqlQuery = sparqlPrefix +
+            "SELECT ?Game\n" +
+            "\tWHERE {\n" +
+            "\t\t?Franchise a games:Franchise .\n" +
+            "\t\t?Franchise games:hasFranchiseID "+franchise+" .\n" +
+            "\t\t?Game games:belongsToFranchise ?Franchise .\n" +
+            "\t}"
+    ;
+
+    Query query = QueryFactory.create(sparqlQuery);
+    QueryExecution qe = QueryExecutionFactory.create(query, model);
+    ResultSet answer = qe.execSelect();
+
+    while (answer.hasNext()) {
+      QuerySolution qs = answer.nextSolution();
+      RDFNode temp = qs.get("Game");
+      results.add(temp.asNode().getLocalName());
+    }
+
+    qe.close();
+
+    return results;
+  }
+
+  @WebMethod
   public ArrayList<String> listClassByProperty(String className, String property, boolean asc, int limit, int page)
   {
     ArrayList<String> results = new ArrayList<String>();
@@ -80,114 +225,141 @@ public class GameOntologyServer {
     }
 
     qe.close();
-    System.out.println("Enviei os resultados");
     return results;
   }
 
   @WebMethod
-  public String[] getGameInfo(String gameID, boolean isID)
-  {
-    String[] results = new String[9];
+  public ArrayList<String> listGamesByType(String name, String type){
+    ArrayList<String> results = new ArrayList<String>();
     String sparqlQuery;
 
-    if(isID)
-    {
-      sparqlQuery = sparqlPrefix +
-              "SELECT ?Game ?name ?description ?image ?genre ?theme ?developer ?publisher ?platform ?franchise\n" +
-              "\tWHERE {\n" +
-              "\t\t?Game a games:Game .\n" +
-              "\t\t?Game games:hasGameID " + gameID + " .\n" +
-              "\t\t?Game games:hasGameName ?name .\n";
-    }
-    else
-    {
-      sparqlQuery = sparqlPrefix +
-              "SELECT ?Game ?id ?description ?image ?genre ?theme ?developer ?publisher ?platform ?franchise\n" +
-              "\tWHERE {\n" +
-              "\t\t?Game a games:Game .\n" +
-              "\t\t?Game games:hasGameID ?id .\n" +
-              "\t\t?Game games:hasGameName \"" + gameID +"\" .\n";
-    }
-
-    sparqlQuery = sparqlQuery +
+    sparqlQuery = sparqlPrefix +
+            "SELECT ?Game ?name\n" +
+            "\tWHERE {\n" +
+            "\t\t?Game a games:Game .\n" +
+            "\t\t?Game games:"+type+" \"" + name + "\" .\n" +
             "\t\t?Game games:hasGameName ?name .\n" +
-            "\t\t?Game games:hasGameDescription ?description .\n" +
-            "\t\t?Game games:hasGameImage ?image .\n" +
-            "\t\tOPTIONAL { ?Game games:hasGameGenre ?genre } .\n" +
-            "\t\tOPTIONAL { ?Game games:hasGameTheme ?theme } .\n" +
-            "\t\tOPTIONAL { ?Game games:isDevelopedBy ?developer } .\n" +
-            "\t\tOPTIONAL { ?Game games:isPublishedBy ?publisher } .\n" +
-            "\t\tOPTIONAL { ?Game games:developedForPlatform ?platform } .\n" +
-            "\t\tOPTIONAL { ?Game games:belongsToFranchise ?franchise } .\n" +
             "\t}"
     ;
 
     Query query = QueryFactory.create(sparqlQuery);
     QueryExecution qe = QueryExecutionFactory.create(query, model);
     ResultSet answer = qe.execSelect();
-    System.out.println(answer.toString());
 
-    System.out.println("comecei");
-    int iter=0;
     while (answer.hasNext()) {
-      iter++;
-      System.out.println(iter);
       QuerySolution qs = answer.nextSolution();
-      if(isID)
-        results[0] = (qs.get("?name").toString());
-      else {
-        String[] parts = (qs.get("?id").toString()).split("\\^\\^");
-        results[0] = parts[0];
-      }
-      System.out.println(results[0]);
-      results[1] = (qs.get("?description").toString());
-      String[] parts = (qs.get("?image").toString()).split("\\^\\^");
-      try {
-        results[2] = java.net.URLDecoder.decode(parts[0],"UTF-8");
-      } catch (UnsupportedEncodingException e) {
-        e.printStackTrace();
-      }
-
-      if(qs.get("?genre") == null)
-        results[3] = ("N/A");
-      else {
-        System.out.println("--------");
-        System.out.println(qs.get("?genre"));
-        String temp = qs.get("?genre").toString();
-        System.out.println(temp);
-        temp.replace("\n",",");
-        System.out.println(temp);
-        System.out.println("--over--");
-        results[3] = temp;
-      }
-
-      if(qs.get("?theme") == null)
-        results[4] = ("N/A");
-      else
-        results[4] = (qs.get("?theme").toString());
-
-      if(qs.get("?developer") == null)
-        results[5] = ("N/A");
-      else
-        results[5] = (qs.get("?developer").toString());
-
-      if(qs.get("?publisher") == null)
-        results[6] = ("N/A");
-      else
-        results[6] = (qs.get("?publisher").toString());
-
-      if(qs.get("?platform") == null)
-        results[7] = ("N/A");
-      else
-        results[7] = (qs.get("?platform").toString());
-
-      if(qs.get("?franchise") == null)
-        results[8] = ("N/A");
-      else
-        results[8] = (qs.get("?franchise").toString());
+      results.add(qs.get("?name").toString());
     }
-    System.out.println("acabei");
+
     qe.close();
+    return results;
+  }
+
+  @WebMethod
+  public String[] getGameInfo(String game, boolean isID)
+  {
+    String[] results = new String[10];
+    String sparqlQuery;
+
+    sparqlQuery = sparqlPrefix +
+            "SELECT\t ?name ?id ?description ?image (group_concat( distinct ?genre;separator=\"+\") as ?genres) (group_concat( distinct ?theme;separator=\"+\") as ?themes) (group_concat( distinct ?publisher;separator=\"+\") as ?publishers) (group_concat( distinct ?developer;separator=\"+\") as ?developers) (group_concat( distinct ?platform;separator=\"+\") as ?platforms) (group_concat( distinct ?franchise;separator=\"+\") as ?franchises)\n" +
+            "\tWHERE {\n" +
+            "\t\t?Game a games:Game .\n";
+
+    if(isID)
+    {
+      sparqlQuery = sparqlQuery +
+              "\t\t?Game games:hasGameName ?name .\n" +
+              "\t\t?Game games:hasGameID " + game + " .\n";
+    }
+    else
+    {
+      sparqlQuery = sparqlQuery +
+              "\t\t?Game games:hasGameName \"" + game +"\" .\n" +
+              "\t\t?Game games:hasGameID ?id .\n";
+    }
+
+    sparqlQuery = sparqlQuery +
+            "\t\t?Game games:hasGameDescription ?description .\n" +
+            "\t\t?Game games:hasGameImage ?image .\n" +
+            "\t\tOPTIONAL { ?Game games:hasGameGenre ?genre } .\n" +
+            "\t\tOPTIONAL { ?Game games:hasGameTheme ?theme } .\n" +
+            "\t\tOPTIONAL { ?Game games:isPublishedBy ?publisherURI } .\n" +
+            "\t\tOPTIONAL { ?publisherURI games:hasCompanyName ?publisher } .\n" +
+            "\t\tOPTIONAL { ?Game games:isDevelopedBy ?developerURI } .\n" +
+            "\t\tOPTIONAL { ?developerURI games:hasCompanyName ?developer } .\n" +
+            "\t\tOPTIONAL { ?Game games:developedForPlatform ?platformURI } .\n" +
+            "\t\tOPTIONAL { ?platformURI games:hasPlatformName ?platform } .\n" +
+            "\t\tOPTIONAL { ?Game games:belongsToFranchise ?franchiseURI } .\n" +
+            "\t\tOPTIONAL { ?franchiseURI games:hasFranchiseName ?franchise } .\n" +
+            "\t}" +
+            "GROUP BY ?name ?id ?description ?image";
+
+    System.out.println(sparqlQuery);
+
+    try{
+      Query query = QueryFactory.create(sparqlQuery);
+      QueryExecution qe = QueryExecutionFactory.create(query, model);
+      ResultSet answer = qe.execSelect();
+
+      while (answer.hasNext()) {
+        QuerySolution qs = answer.nextSolution();
+        System.out.println("Result: " + qs.toString());
+
+        if(isID){
+          results[0] = (qs.get("?name").toString());
+          results[1] = game;
+        }
+        else{
+          results[0] = game;
+          String[] parts = (qs.get("?id").toString()).split("\\^\\^");
+          results[1] = parts[0];
+        }
+
+        results[2] = (qs.get("?description").toString());
+
+        String[] parts = (qs.get("?image").toString()).split("\\^\\^");
+        try {
+          results[3] = java.net.URLDecoder.decode(parts[0],"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+          e.printStackTrace();
+        }
+
+        if(qs.get("?genres") == null || qs.get("?genres").toString().length() > 250)
+          results[4] = ("N/A");
+        else
+          results[4] = qs.get("?genres").toString();
+
+        if(qs.get("?themes") == null || qs.get("?themes").toString().length() > 250)
+          results[5] = ("N/A");
+        else
+          results[5] = (qs.get("?themes").toString());
+
+        if(qs.get("?developers") == null || qs.get("?developers").toString().length() > 250)
+          results[6] = ("N/A");
+        else
+          results[6] = (qs.get("?developers").toString());
+
+        if(qs.get("?publishers") == null || qs.get("?publishers").toString().length() > 250)
+          results[7] = ("N/A");
+        else
+          results[7] = (qs.get("?publishers").toString());
+
+        if(qs.get("?platforms") == null || qs.get("?platforms").toString().length() > 250)
+          results[8] = ("N/A");
+        else
+          results[8] = (qs.get("?platforms").toString());
+
+        if(qs.get("?franchises") == null || qs.get("?franchises").toString().length() > 250)
+          results[9] = ("N/A");
+        else
+          results[9] = (qs.get("?franchises").toString());
+      }
+      qe.close();
+    }catch (Exception e){
+      System.out.println(e);
+      return null;
+    }
 
     return results;
   }
@@ -204,7 +376,7 @@ public class GameOntologyServer {
 
   public static void readOntology(){
     ontologyModel = ModelFactory.createOntologyModel();
-    ontologyModel.read("resources/ontology_generated.owl", "RDF/XML");
+    ontologyModel.read("resources/ontology_generated_min.owl", "RDF/XML");
     model = ontologyModel.getBaseModel();
 
     Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
