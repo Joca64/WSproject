@@ -98,12 +98,12 @@
                             <%
                                 for(String genre : genres) {
                             %>
-                            <p><span class="label label-success"><%= genre %></span></p>
+                            <p><a href="/genre.jsp?name=<%= genre %>" class="label label-success"><%= genre %></a></p>
                             <%
                                 }
                                 for(String theme : themes){
                             %>
-                            <p><span class="label label-warning"><%= theme %></span></p>
+                            <p><a href="/theme.jsp?name=<%= theme %>" class="label label-warning"><%= theme %></a></p>
                             <%
                                 }
                             %>

@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Arrays" %>
 
-<jsp:useBean id="jogo" class="mypackage.WebServiceClient" scope="page"/>
+<jsp:useBean id="cliente" class="mypackage.WebServiceClient" scope="page"/>
 
 <html>
 <head>
@@ -10,12 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Game</title>
+    <title>Games</title>
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
 
@@ -75,88 +73,48 @@
 </div>
 
 <%
-    List<String> titles = Arrays.asList("Name","ID","Description","Country","Website","Games Developed");
-    int counter = 0;
-    if(request.getParameter("name") != null || request.getParameter("id") != null){
-        List<String> companyInfo;
-        if(request.getParameter("name") != null)
-            companyInfo = jogo.getCompany(request.getParameter("name"), false, "Developer");
-        else{
-            companyInfo = jogo.getCompany(request.getParameter("id"), true, "Developer");
-        }
-        if(companyInfo.size() == 0){
+    if (request.getParameter("name") != null) {
+        List<String> themeInfo = cliente.getTheme(request.getParameter("name"));
+        if (themeInfo.size() == 0) {
 %>
 <script>
-    alert("Developer not found, please try again.");
+    alert("Theme not found, please try again.");
     window.location.href = "/";
 </script>
 <%
-}else{
+} else {
 %>
 <div class="row">
-    <center><h2>Developer - <%=companyInfo.get(0)%></h2></center>
+    <center><h2>Theme - <%=themeInfo.get(0)%>
+    </h2></center>
 </div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="panel panel-default col-md-8">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Property</th>
-                    <th>Value(s)</th>
-                </tr>
-                </thead>
-                <tbody>
-                <%
-                    for(String thing: companyInfo){
-                %>
-                <tr>
-                    <td><%=titles.get(counter)%></td>
-                    <td>
-                        <%
-                            if(counter==4){ //website
-                                if(thing.equals("N/A")){
-                        %>
-                        <%=thing%></td>
-                    <%
-                    }else{
-                    %>
-                    <a target="_blank" href="<%=thing%>"><%=thing%></a></td>
-                    <%
-                        }}else if(counter==5){ //games
-                        String[] games = thing.split("\\+");
-                        for(String game : games){
-                    %>
-                    <a href="game.jsp?name=<%=game%>"><%=game%></a>
-                    <%
-                        }
-                    %>
-                    </td>
-                    <%
-                    }else{
-                    %>
-                        <%=thing%></td>
-                    <%
-                        }
-                        counter++;
-                    %>
-                </tr>
-                <%
-                    }
-                %>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <ul class="list-group">
+            <%
+                int counter = 0;
+                String[] jogos = themeInfo.get(1).split("\\+");
+                for(String jogo: jogos){
+                    counter++;
+            %>
+            <li class="list-group-item">
+                <span class="badge"><%= counter%></span>
+                <a href="/game.jsp?name=<%= jogo%>"><%= jogo%></a>
+            </li>
+            <%
+                }
+            %>
+        </ul>
     </div>
+    <div class="col-md-1"></div>
 </div>
 <%
     }
 } else {
 %>
 <script>
-    alert("Please enter a developer id or name.");
+    alert("Please enter a theme name.");
     window.location.href = "/";
 </script>
 <%

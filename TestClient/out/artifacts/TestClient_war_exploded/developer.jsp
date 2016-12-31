@@ -20,7 +20,11 @@
 <body>
 
 <div class="container-fluid">
-    <center><div class="page-header"><h1>Game Ontology<small> - Discover new games</small></h1></div></center>
+    <center>
+        <div class="page-header">
+            <h1>Game Ontology<small> - Discover new games</small></h1>
+        </div>
+    </center>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="panel panel-default col-md-6">
@@ -113,12 +117,12 @@
                         <%
                             if(counter==4){ //website
                                 if(thing.equals("N/A")){
-                                %>
-                                    <%=thing%></td>
-                                <%
-                                }else{
-                                %>
-                                    <a target="_blank" href="<%=thing%>"><%=thing%></a></td>
+                        %>
+                        <%=thing%></td>
+                    <%
+                    }else{
+                    %>
+                    <a target="_blank" href="<%=thing%>"><%=thing%></a></td>
                     <%
                         }}else if(counter==5){ //games
                         String[] games = thing.split("\\+");

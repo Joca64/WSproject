@@ -25,14 +25,14 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ListClassByPropertyResponse_QNAME = new QName("http://example/", "listClassByPropertyResponse");
-    private final static QName _GetGamesFromFranchise_QNAME = new QName("http://example/", "getGamesFromFranchise");
+    private final static QName _GetFranchiseInfo_QNAME = new QName("http://example/", "getFranchiseInfo");
     private final static QName _SayHelloWorldFrom_QNAME = new QName("http://example/", "sayHelloWorldFrom");
     private final static QName _SayHelloWorldFromNoobResponse_QNAME = new QName("http://example/", "sayHelloWorldFromNoobResponse");
     private final static QName _GetGameInfoResponse_QNAME = new QName("http://example/", "getGameInfoResponse");
     private final static QName _ListGamesByTypeResponse_QNAME = new QName("http://example/", "listGamesByTypeResponse");
-    private final static QName _GetGamesFromFranchiseResponse_QNAME = new QName("http://example/", "getGamesFromFranchiseResponse");
     private final static QName _SayHelloWorldFromNoob_QNAME = new QName("http://example/", "sayHelloWorldFromNoob");
     private final static QName _ListGamesByType_QNAME = new QName("http://example/", "listGamesByType");
+    private final static QName _GetFranchiseInfoResponse_QNAME = new QName("http://example/", "getFranchiseInfoResponse");
     private final static QName _GetGamesFromPlatformResponse_QNAME = new QName("http://example/", "getGamesFromPlatformResponse");
     private final static QName _SayHelloWorldFromResponse_QNAME = new QName("http://example/", "sayHelloWorldFromResponse");
     private final static QName _GetGameInfo_QNAME = new QName("http://example/", "getGameInfo");
@@ -49,11 +49,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetGamesFromFranchise }
+     * Create an instance of {@link GetFranchiseInfo }
      * 
      */
-    public GetGamesFromFranchise createGetGamesFromFranchise() {
-        return new GetGamesFromFranchise();
+    public GetFranchiseInfo createGetFranchiseInfo() {
+        return new GetFranchiseInfo();
     }
 
     /**
@@ -70,6 +70,14 @@ public class ObjectFactory {
      */
     public ListGamesByType createListGamesByType() {
         return new ListGamesByType();
+    }
+
+    /**
+     * Create an instance of {@link GetFranchiseInfoResponse }
+     * 
+     */
+    public GetFranchiseInfoResponse createGetFranchiseInfoResponse() {
+        return new GetFranchiseInfoResponse();
     }
 
     /**
@@ -118,14 +126,6 @@ public class ObjectFactory {
      */
     public ListGamesByTypeResponse createListGamesByTypeResponse() {
         return new ListGamesByTypeResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetGamesFromFranchiseResponse }
-     * 
-     */
-    public GetGamesFromFranchiseResponse createGetGamesFromFranchiseResponse() {
-        return new GetGamesFromFranchiseResponse();
     }
 
     /**
@@ -186,12 +186,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetGamesFromFranchise }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFranchiseInfo }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://example/", name = "getGamesFromFranchise")
-    public JAXBElement<GetGamesFromFranchise> createGetGamesFromFranchise(GetGamesFromFranchise value) {
-        return new JAXBElement<GetGamesFromFranchise>(_GetGamesFromFranchise_QNAME, GetGamesFromFranchise.class, null, value);
+    @XmlElementDecl(namespace = "http://example/", name = "getFranchiseInfo")
+    public JAXBElement<GetFranchiseInfo> createGetFranchiseInfo(GetFranchiseInfo value) {
+        return new JAXBElement<GetFranchiseInfo>(_GetFranchiseInfo_QNAME, GetFranchiseInfo.class, null, value);
     }
 
     /**
@@ -231,15 +231,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetGamesFromFranchiseResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://example/", name = "getGamesFromFranchiseResponse")
-    public JAXBElement<GetGamesFromFranchiseResponse> createGetGamesFromFranchiseResponse(GetGamesFromFranchiseResponse value) {
-        return new JAXBElement<GetGamesFromFranchiseResponse>(_GetGamesFromFranchiseResponse_QNAME, GetGamesFromFranchiseResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SayHelloWorldFromNoob }{@code >}}
      * 
      */
@@ -255,6 +246,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://example/", name = "listGamesByType")
     public JAXBElement<ListGamesByType> createListGamesByType(ListGamesByType value) {
         return new JAXBElement<ListGamesByType>(_ListGamesByType_QNAME, ListGamesByType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFranchiseInfoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://example/", name = "getFranchiseInfoResponse")
+    public JAXBElement<GetFranchiseInfoResponse> createGetFranchiseInfoResponse(GetFranchiseInfoResponse value) {
+        return new JAXBElement<GetFranchiseInfoResponse>(_GetFranchiseInfoResponse_QNAME, GetFranchiseInfoResponse.class, null, value);
     }
 
     /**

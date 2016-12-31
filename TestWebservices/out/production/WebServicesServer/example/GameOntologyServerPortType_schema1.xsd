@@ -5,6 +5,10 @@
 
   <xs:element name="getCompanyInfoResponse" type="tns:getCompanyInfoResponse"/>
 
+  <xs:element name="getFranchiseInfo" type="tns:getFranchiseInfo"/>
+
+  <xs:element name="getFranchiseInfoResponse" type="tns:getFranchiseInfoResponse"/>
+
   <xs:element name="getGameInfo" type="tns:getGameInfo"/>
 
   <xs:element name="getGameInfoResponse" type="tns:getGameInfoResponse"/>
@@ -120,6 +124,19 @@
   <xs:complexType name="getGamesFromFranchiseResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFranchiseInfo">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFranchiseInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

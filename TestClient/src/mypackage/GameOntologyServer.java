@@ -34,6 +34,24 @@ public interface GameOntologyServer {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getGameInfo", targetNamespace = "http://example/", className = "mypackage.GetGameInfo")
+    @ResponseWrapper(localName = "getGameInfoResponse", targetNamespace = "http://example/", className = "mypackage.GetGameInfoResponse")
+    @Action(input = "http://example/GameOntologyServer/getGameInfoRequest", output = "http://example/GameOntologyServer/getGameInfoResponse")
+    public List<String> getGameInfo(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        boolean arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "listGamesByType", targetNamespace = "http://example/", className = "mypackage.ListGamesByType")
     @ResponseWrapper(localName = "listGamesByTypeResponse", targetNamespace = "http://example/", className = "mypackage.ListGamesByTypeResponse")
     @Action(input = "http://example/GameOntologyServer/listGamesByTypeRequest", output = "http://example/GameOntologyServer/listGamesByTypeResponse")
@@ -42,6 +60,24 @@ public interface GameOntologyServer {
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getFranchiseInfo", targetNamespace = "http://example/", className = "mypackage.GetFranchiseInfo")
+    @ResponseWrapper(localName = "getFranchiseInfoResponse", targetNamespace = "http://example/", className = "mypackage.GetFranchiseInfoResponse")
+    @Action(input = "http://example/GameOntologyServer/getFranchiseInfoRequest", output = "http://example/GameOntologyServer/getFranchiseInfoResponse")
+    public List<String> getFranchiseInfo(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        boolean arg1);
 
     /**
      * 
@@ -66,24 +102,6 @@ public interface GameOntologyServer {
 
     /**
      * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getGameInfo", targetNamespace = "http://example/", className = "mypackage.GetGameInfo")
-    @ResponseWrapper(localName = "getGameInfoResponse", targetNamespace = "http://example/", className = "mypackage.GetGameInfoResponse")
-    @Action(input = "http://example/GameOntologyServer/getGameInfoRequest", output = "http://example/GameOntologyServer/getGameInfoResponse")
-    public List<String> getGameInfo(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        boolean arg1);
-
-    /**
-     * 
      * @return
      *     returns java.lang.String
      */
@@ -96,18 +114,30 @@ public interface GameOntologyServer {
 
     /**
      * 
+     * @param arg3
+     * @param arg2
+     * @param arg4
+     * @param arg1
      * @param arg0
      * @return
      *     returns java.util.List<java.lang.String>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getGamesFromFranchise", targetNamespace = "http://example/", className = "mypackage.GetGamesFromFranchise")
-    @ResponseWrapper(localName = "getGamesFromFranchiseResponse", targetNamespace = "http://example/", className = "mypackage.GetGamesFromFranchiseResponse")
-    @Action(input = "http://example/GameOntologyServer/getGamesFromFranchiseRequest", output = "http://example/GameOntologyServer/getGamesFromFranchiseResponse")
-    public List<String> getGamesFromFranchise(
+    @RequestWrapper(localName = "listClassByProperty", targetNamespace = "http://example/", className = "mypackage.ListClassByProperty")
+    @ResponseWrapper(localName = "listClassByPropertyResponse", targetNamespace = "http://example/", className = "mypackage.ListClassByPropertyResponse")
+    @Action(input = "http://example/GameOntologyServer/listClassByPropertyRequest", output = "http://example/GameOntologyServer/listClassByPropertyResponse")
+    public List<String> listClassByProperty(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        boolean arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        int arg4);
 
     /**
      * 
@@ -138,32 +168,5 @@ public interface GameOntologyServer {
     public List<String> getGamesFromPlatform(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @param arg3
-     * @param arg2
-     * @param arg4
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listClassByProperty", targetNamespace = "http://example/", className = "mypackage.ListClassByProperty")
-    @ResponseWrapper(localName = "listClassByPropertyResponse", targetNamespace = "http://example/", className = "mypackage.ListClassByPropertyResponse")
-    @Action(input = "http://example/GameOntologyServer/listClassByPropertyRequest", output = "http://example/GameOntologyServer/listClassByPropertyResponse")
-    public List<String> listClassByProperty(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        boolean arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        int arg3,
-        @WebParam(name = "arg4", targetNamespace = "")
-        int arg4);
 
 }

@@ -114,7 +114,27 @@
                     <td><%=titles.get(counter)%></td>
                     <td>
                 <%
-                        if(counter==6){ //developers
+                    if(counter==4){ //themes
+                        String[] genres = thing.split("\\+");
+                        for(String genre : genres){
+                %>
+                        <a href="genre.jsp?name=<%=genre%>"><%=genre%></a>
+                        <%
+                            }
+                        %>
+                    </td>
+                    <%
+                    }else if(counter==5){ //themes
+                        String[] themes = thing.split("\\+");
+                        for(String theme : themes){
+                %>
+                        <a href="theme.jsp?name=<%=theme%>"><%=theme%></a>
+                        <%
+                            }
+                        %>
+                    </td>
+                    <%
+                    }else if(counter==6){ //developers
                             String[] developers = thing.split("\\+");
                             for(String developer : developers){
                 %>
@@ -125,16 +145,41 @@
                     </td>
                     <%
                     }else if(counter==7){ //publishers
-                            String[] publishers = thing.split("\\+");
-                            for(String publisher : publishers){
-                    %>
-                        <a href="publisher.jsp?name=<%=publisher%>"><%=publisher%></a>
-                    <%
-                            }
+                        String[] publishers = thing.split("\\+");
+                        for(String publisher : publishers){
                 %>
+                    <a href="publisher.jsp?name=<%=publisher%>"><%=publisher%></a>
+                    <%
+                        }
+                    %>
                     </td>
-                <%
-                    }else{
+                    <%
+                    }else if(counter==8){ //platforms
+                        String[] platforms = thing.split("\\+");
+                        for(String platform : platforms){
+                    %>
+                    <span><%=platform%></span>
+                    <%
+                        }
+                    %>
+                    </td>
+                    <%
+                    }else if(counter==9){ //franchises
+                        String[] franchises = thing.split("\\+");
+                        if(franchises[0].equals("N/A")){
+                    %>
+                        <%=franchises[0]%></td>
+                    <%
+                        }else{
+                        for(String franchise : franchises){
+                    %>
+                    <a href="franchise.jsp?name=<%=franchise%>"><%=franchise%></a>
+                    <%
+                        }
+                    %>
+                    </td>
+                    <%
+                    }}else{
                 %>
                     <%=thing%></td>
                 <%

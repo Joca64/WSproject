@@ -20,7 +20,11 @@
 <body>
 
 <div class="container-fluid">
-    <center><div class="page-header"><h1>Game Ontology<small> - Discover new games</small></h1></div></center>
+    <center>
+        <div class="page-header">
+            <h1>Game Ontology<small> - Discover new games</small></h1>
+        </div>
+    </center>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="panel panel-default col-md-6">
@@ -71,34 +75,31 @@
 </div>
 
 <%
-    List<String> titles = Arrays.asList("Name","ID","Description","Image","Genres","Themes","Developers","Publishers","Platforms","Franchise");
+    List<String> titles = Arrays.asList("Name","ID","Description","Games");
     int counter = 0;
     if(request.getParameter("name") != null || request.getParameter("id") != null){
-        List<String> gameInfo;
+        List<String> franchiseInfo;
         if(request.getParameter("name") != null)
-            gameInfo = jogo.getGame(request.getParameter("name"), false);
+            franchiseInfo = jogo.getFranchise(request.getParameter("name"), false);
         else{
-            gameInfo = jogo.getGame(request.getParameter("id"), true);
+            franchiseInfo = jogo.getFranchise(request.getParameter("id"), true);
         }
-        if(gameInfo.size() == 0){
+        if(franchiseInfo.size() == 0){
 %>
 <script>
-    alert("Game not found, please try again.");
+    alert("Franchise not found, please try again.");
     window.location.href = "/";
 </script>
 <%
 }else{
 %>
 <div class="row">
-    <center><h2>Game - <%=gameInfo.get(0)%></h2></center>
+    <center><h2>Franchise - <%=franchiseInfo.get(0)%></h2></center>
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="panel panel-default col-md-3">
-            <img style="width: 100%" src="<%=gameInfo.get(3)%>" >
-        </div>
-        <div class="panel panel-default col-md-7">
+        <div class="col-md-2"></div>
+        <div class="panel panel-default col-md-8">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -108,84 +109,25 @@
                 </thead>
                 <tbody>
                 <%
-                    for(String thing: gameInfo){
+                    for(String thing: franchiseInfo){
                 %>
                 <tr>
                     <td><%=titles.get(counter)%></td>
                     <td>
-                <%
-                    if(counter==4){ //themes
-                        String[] genres = thing.split("\\+");
-                        for(String genre : genres){
-                %>
-                        <a href="genre.jsp?name=<%=genre%>"><%=genre%></a>
                         <%
-                            }
+                            if(counter==3){ //games
+                                String[] games = thing.split("\\+");
+                                for(String game : games){
                         %>
-                    </td>
-                    <%
-                    }else if(counter==5){ //themes
-                        String[] themes = thing.split("\\+");
-                        for(String theme : themes){
-                %>
-                        <a href="theme.jsp?name=<%=theme%>"><%=theme%></a>
+                        <a href="game.jsp?name=<%=game%>"><%=game%></a>
                         <%
-                            }
-                        %>
-                    </td>
-                    <%
-                    }else if(counter==6){ //developers
-                            String[] developers = thing.split("\\+");
-                            for(String developer : developers){
-                %>
-                        <a href="developer.jsp?name=<%=developer%>"><%=developer%></a>
-                        <%
-                            }
-                        %>
-                    </td>
-                    <%
-                    }else if(counter==7){ //publishers
-                        String[] publishers = thing.split("\\+");
-                        for(String publisher : publishers){
-                %>
-                    <a href="publisher.jsp?name=<%=publisher%>"><%=publisher%></a>
+                            }}else{
+                    %>
+                        <%=thing%></td>
                     <%
                         }
+                        counter++;
                     %>
-                    </td>
-                    <%
-                    }else if(counter==8){ //platforms
-                        String[] platforms = thing.split("\\+");
-                        for(String platform : platforms){
-                    %>
-                    <span><%=platform%></span>
-                    <%
-                        }
-                    %>
-                    </td>
-                    <%
-                    }else if(counter==9){ //franchises
-                        String[] franchises = thing.split("\\+");
-                        if(franchises[0].equals("N/A")){
-                    %>
-                        <%=franchises[0]%></td>
-                    <%
-                        }else{
-                        for(String franchise : franchises){
-                    %>
-                    <a href="franchise.jsp?name=<%=franchise%>"><%=franchise%></a>
-                    <%
-                        }
-                    %>
-                    </td>
-                    <%
-                    }}else{
-                %>
-                    <%=thing%></td>
-                <%
-                    }
-                    counter++;
-                %>
                 </tr>
                 <%
                     }
@@ -193,7 +135,7 @@
                 </tbody>
             </table>
         </div>
-            <div class="col-md-1"></div>
+        <div class="col-md-2"></div>
     </div>
 </div>
 <%
@@ -201,7 +143,7 @@
 } else {
 %>
 <script>
-    alert("Please enter a game id or name.");
+    alert("Please enter a franchise id or name.");
     window.location.href = "/";
 </script>
 <%

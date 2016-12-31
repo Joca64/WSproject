@@ -12,17 +12,23 @@
   <message name="listGamesByTypeResponse">
     <part name="parameters" element="tns:listGamesByTypeResponse"/>
   </message>
+  <message name="getGameInfo">
+    <part name="parameters" element="tns:getGameInfo"/>
+  </message>
+  <message name="getGameInfoResponse">
+    <part name="parameters" element="tns:getGameInfoResponse"/>
+  </message>
   <message name="getCompanyInfo">
     <part name="parameters" element="tns:getCompanyInfo"/>
   </message>
   <message name="getCompanyInfoResponse">
     <part name="parameters" element="tns:getCompanyInfoResponse"/>
   </message>
-  <message name="getGameInfo">
-    <part name="parameters" element="tns:getGameInfo"/>
+  <message name="getFranchiseInfo">
+    <part name="parameters" element="tns:getFranchiseInfo"/>
   </message>
-  <message name="getGameInfoResponse">
-    <part name="parameters" element="tns:getGameInfoResponse"/>
+  <message name="getFranchiseInfoResponse">
+    <part name="parameters" element="tns:getFranchiseInfoResponse"/>
   </message>
   <message name="sayHelloWorldFromNoob">
     <part name="parameters" element="tns:sayHelloWorldFromNoob"/>
@@ -30,17 +36,17 @@
   <message name="sayHelloWorldFromNoobResponse">
     <part name="parameters" element="tns:sayHelloWorldFromNoobResponse"/>
   </message>
-  <message name="getGamesFromFranchise">
-    <part name="parameters" element="tns:getGamesFromFranchise"/>
-  </message>
-  <message name="getGamesFromFranchiseResponse">
-    <part name="parameters" element="tns:getGamesFromFranchiseResponse"/>
-  </message>
   <message name="sayHelloWorldFrom">
     <part name="parameters" element="tns:sayHelloWorldFrom"/>
   </message>
   <message name="sayHelloWorldFromResponse">
     <part name="parameters" element="tns:sayHelloWorldFromResponse"/>
+  </message>
+  <message name="getGamesFromFranchise">
+    <part name="parameters" element="tns:getGamesFromFranchise"/>
+  </message>
+  <message name="getGamesFromFranchiseResponse">
+    <part name="parameters" element="tns:getGamesFromFranchiseResponse"/>
   </message>
   <message name="getGamesFromPlatform">
     <part name="parameters" element="tns:getGamesFromPlatform"/>
@@ -59,33 +65,37 @@
       <input ns1:Action="http://example/GameOntologyServer/listGamesByTypeRequest" message="tns:listGamesByType" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata"/>
       <output ns2:Action="http://example/GameOntologyServer/listGamesByTypeResponse" message="tns:listGamesByTypeResponse" xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
-    <operation name="getCompanyInfo">
-      <input ns3:Action="http://example/GameOntologyServer/getCompanyInfoRequest" message="tns:getCompanyInfo" xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns4:Action="http://example/GameOntologyServer/getCompanyInfoResponse" message="tns:getCompanyInfoResponse" xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata"/>
-    </operation>
     <operation name="getGameInfo">
-      <input ns5:Action="http://example/GameOntologyServer/getGameInfoRequest" message="tns:getGameInfo" xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns6:Action="http://example/GameOntologyServer/getGameInfoResponse" message="tns:getGameInfoResponse" xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns3:Action="http://example/GameOntologyServer/getGameInfoRequest" message="tns:getGameInfo" xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns4:Action="http://example/GameOntologyServer/getGameInfoResponse" message="tns:getGameInfoResponse" xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata"/>
+    </operation>
+    <operation name="getCompanyInfo">
+      <input ns5:Action="http://example/GameOntologyServer/getCompanyInfoRequest" message="tns:getCompanyInfo" xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns6:Action="http://example/GameOntologyServer/getCompanyInfoResponse" message="tns:getCompanyInfoResponse" xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata"/>
+    </operation>
+    <operation name="getFranchiseInfo">
+      <input ns7:Action="http://example/GameOntologyServer/getFranchiseInfoRequest" message="tns:getFranchiseInfo" xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns8:Action="http://example/GameOntologyServer/getFranchiseInfoResponse" message="tns:getFranchiseInfoResponse" xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="sayHelloWorldFromNoob">
-      <input ns7:Action="http://example/GameOntologyServer/sayHelloWorldFromNoobRequest" message="tns:sayHelloWorldFromNoob" xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns8:Action="http://example/GameOntologyServer/sayHelloWorldFromNoobResponse" message="tns:sayHelloWorldFromNoobResponse" xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata"/>
-    </operation>
-    <operation name="getGamesFromFranchise">
-      <input ns9:Action="http://example/GameOntologyServer/getGamesFromFranchiseRequest" message="tns:getGamesFromFranchise" xmlns:ns9="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns10:Action="http://example/GameOntologyServer/getGamesFromFranchiseResponse" message="tns:getGamesFromFranchiseResponse" xmlns:ns10="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns9:Action="http://example/GameOntologyServer/sayHelloWorldFromNoobRequest" message="tns:sayHelloWorldFromNoob" xmlns:ns9="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns10:Action="http://example/GameOntologyServer/sayHelloWorldFromNoobResponse" message="tns:sayHelloWorldFromNoobResponse" xmlns:ns10="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="sayHelloWorldFrom">
       <input ns11:Action="http://example/GameOntologyServer/sayHelloWorldFromRequest" message="tns:sayHelloWorldFrom" xmlns:ns11="http://www.w3.org/2007/05/addressing/metadata"/>
       <output ns12:Action="http://example/GameOntologyServer/sayHelloWorldFromResponse" message="tns:sayHelloWorldFromResponse" xmlns:ns12="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
+    <operation name="getGamesFromFranchise">
+      <input ns13:Action="http://example/GameOntologyServer/getGamesFromFranchiseRequest" message="tns:getGamesFromFranchise" xmlns:ns13="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns14:Action="http://example/GameOntologyServer/getGamesFromFranchiseResponse" message="tns:getGamesFromFranchiseResponse" xmlns:ns14="http://www.w3.org/2007/05/addressing/metadata"/>
+    </operation>
     <operation name="getGamesFromPlatform">
-      <input ns13:Action="http://example/GameOntologyServer/getGamesFromPlatformRequest" message="tns:getGamesFromPlatform" xmlns:ns13="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns14:Action="http://example/GameOntologyServer/getGamesFromPlatformResponse" message="tns:getGamesFromPlatformResponse" xmlns:ns14="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns15:Action="http://example/GameOntologyServer/getGamesFromPlatformRequest" message="tns:getGamesFromPlatform" xmlns:ns15="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns16:Action="http://example/GameOntologyServer/getGamesFromPlatformResponse" message="tns:getGamesFromPlatformResponse" xmlns:ns16="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="listClassByProperty">
-      <input ns15:Action="http://example/GameOntologyServer/listClassByPropertyRequest" message="tns:listClassByProperty" xmlns:ns15="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns16:Action="http://example/GameOntologyServer/listClassByPropertyResponse" message="tns:listClassByPropertyResponse" xmlns:ns16="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns17:Action="http://example/GameOntologyServer/listClassByPropertyRequest" message="tns:listClassByProperty" xmlns:ns17="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns18:Action="http://example/GameOntologyServer/listClassByPropertyResponse" message="tns:listClassByPropertyResponse" xmlns:ns18="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
   </portType>
 </definitions>

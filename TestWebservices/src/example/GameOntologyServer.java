@@ -162,36 +162,6 @@ public class GameOntologyServer {
   }
 
   @WebMethod
-  public ArrayList<String> getGamesFromFranchise(String franchise)
-  {
-    ArrayList<String> results = new ArrayList<String>();
-    String sparqlQuery;
-
-    sparqlQuery = sparqlPrefix +
-            "SELECT ?Game\n" +
-            "\tWHERE {\n" +
-            "\t\t?Franchise a games:Franchise .\n" +
-            "\t\t?Franchise games:hasFranchiseID "+franchise+" .\n" +
-            "\t\t?Game games:belongsToFranchise ?Franchise .\n" +
-            "\t}"
-    ;
-
-    Query query = QueryFactory.create(sparqlQuery);
-    QueryExecution qe = QueryExecutionFactory.create(query, model);
-    ResultSet answer = qe.execSelect();
-
-    while (answer.hasNext()) {
-      QuerySolution qs = answer.nextSolution();
-      RDFNode temp = qs.get("Game");
-      results.add(temp.asNode().getLocalName());
-    }
-
-    qe.close();
-
-    return results;
-  }
-
-  @WebMethod
   public ArrayList<String> listClassByProperty(String className, String property, boolean asc, int limit, int page)
   {
     ArrayList<String> results = new ArrayList<String>();
@@ -229,29 +199,106 @@ public class GameOntologyServer {
   }
 
   @WebMethod
-  public ArrayList<String> listGamesByType(String name, String type){
-    ArrayList<String> results = new ArrayList<String>();
+  public String[] listGamesByType(String name, String type){
+    String[] results = new String[2];
     String sparqlQuery;
 
     sparqlQuery = sparqlPrefix +
-            "SELECT ?Game ?name\n" +
+            "SELECT (group_concat( distinct ?game;separator=\"+\") as ?games)\n" +
             "\tWHERE {\n" +
             "\t\t?Game a games:Game .\n" +
-            "\t\t?Game games:"+type+" \"" + name + "\" .\n" +
-            "\t\t?Game games:hasGameName ?name .\n" +
+            "\t\t?Game games:hasGame"+type+" \"" + name + "\" .\n" +
+            "\t\t?Game games:hasGameName ?game .\n" +
             "\t}"
     ;
 
-    Query query = QueryFactory.create(sparqlQuery);
-    QueryExecution qe = QueryExecutionFactory.create(query, model);
-    ResultSet answer = qe.execSelect();
+    System.out.println(sparqlQuery);
 
-    while (answer.hasNext()) {
+    try {
+      Query query = QueryFactory.create(sparqlQuery);
+      QueryExecution qe = QueryExecutionFactory.create(query, model);
+      ResultSet answer = qe.execSelect();
+
       QuerySolution qs = answer.nextSolution();
-      results.add(qs.get("?name").toString());
+      System.out.println("Result: " + qs.toString());
+
+      results[0] = name;
+
+      results[1] = (qs.get("?games").toString());
+
+    }catch (Exception e){
+      System.out.println(e);
+      return null;
+    }
+    return results;
+  }
+
+  @WebMethod
+  public String[] getFranchiseInfo(String franchise, boolean isID)
+  {
+    String[] results = new String[4];
+    String sparqlQuery;
+
+    sparqlQuery = sparqlPrefix +
+            "SELECT\t ?name ?id ?description (group_concat( distinct ?game;separator=\"+\") as ?games)\n" +
+            "\tWHERE {\n" +
+            "\t\t?Franchise a games:Franchise .\n";
+
+    if(isID)
+    {
+      sparqlQuery = sparqlQuery +
+              "\t\t?Franchise games:hasFranchiseName ?name .\n" +
+              "\t\t?Franchise games:hasFranchiseID " + franchise + " .\n";
+    }
+    else
+    {
+      sparqlQuery = sparqlQuery +
+              "\t\t?Franchise games:hasFranchiseName \"" + franchise +"\" .\n" +
+              "\t\t?Franchise games:hasFranchiseID ?id .\n";
     }
 
-    qe.close();
+    sparqlQuery = sparqlQuery +
+            "\t\t?Franchise games:hasFranchiseDescription ?description .\n" +
+            "\t\tOPTIONAL { ?Franchise games:hasGame ?gameURI } .\n" +
+            "\t\tOPTIONAL { ?gameURI games:hasGameName ?game } .\n" +
+            "\t}" +
+            "GROUP BY ?name ?id ?description";
+
+    System.out.println(sparqlQuery);
+
+    try{
+      Query query = QueryFactory.create(sparqlQuery);
+      QueryExecution qe = QueryExecutionFactory.create(query, model);
+      ResultSet answer = qe.execSelect();
+
+      while (answer.hasNext()) {
+        QuerySolution qs = answer.nextSolution();
+        System.out.println("Result: " + qs.toString());
+
+        if(isID){
+          results[0] = (qs.get("?name").toString());
+          results[1] = franchise;
+        }
+        else{
+          results[0] = franchise;
+          String[] parts = (qs.get("?id").toString()).split("\\^\\^");
+          results[1] = parts[0];
+        }
+
+        results[2] = (qs.get("?description").toString());
+
+        if(qs.get("?games") == null || qs.get("?games").toString().length() > 250)
+          results[3] = ("N/A");
+        else
+          results[3] = qs.get("?games").toString();
+
+      }
+      qe.close();
+    }catch (Exception e){
+      System.out.println(e);
+      return null;
+    }
+
     return results;
   }
 
